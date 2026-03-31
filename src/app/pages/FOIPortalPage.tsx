@@ -429,36 +429,12 @@ function FOIRequestModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => 
       onClick={(e) => { if (e.target === e.currentTarget) handleClose(); }}
     >
       <div
-<<<<<<< HEAD
-        className="relative flex flex-col"
-        style={{
-          width: '600px',
-          maxWidth: 'calc(100vw - 48px)',
-          maxHeight: '85vh',
-          backgroundColor: '#FFFFFF',
-          borderRadius: '16px',
-          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.10)',
-          fontFamily: F,
-          overflow: 'hidden',
-        }}
-      >
-        {/* ── Fixed Header ── */}
-        {!submitted && (
-        <div
-          className="shrink-0"
-          style={{
-            padding: '28px 32px 20px 32px',
-            borderBottom: '1px solid #E0E0E0',
-          }}
-        >
-=======
         className="relative flex flex-col w-full md:w-[600px] h-full md:h-auto md:max-h-[85vh] bg-white rounded-none md:rounded-2xl shadow-2xl overflow-hidden"
         style={{ fontFamily: F }}
       >
         {/* ── Fixed Header ── */}
         {!submitted && (
         <div className="shrink-0 p-6 md:p-8 border-b border-[#E0E0E0]">
->>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
           <div className="flex items-start justify-between">
             <div>
               <h2
@@ -563,20 +539,10 @@ function FOIRequestModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => 
         ) : (
           <>
         {/* ── Scrollable Body ── */}
-<<<<<<< HEAD
-        <div
-          className="flex-1 overflow-y-auto"
-          style={{ padding: '32px' }}
-        >
-          <form id="foi-form" onSubmit={handleSubmit}>
-            {/* First Name / Last Name */}
-            <div className="grid grid-cols-2" style={{ gap: '16px', marginBottom: '16px' }}>
-=======
         <div className="flex-1 overflow-y-auto p-6 md:p-8">
           <form id="foi-form" onSubmit={handleSubmit}>
             {/* First Name / Last Name */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
->>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
               <div>
                 <label style={labelStyle}>First Name <span style={{ color: '#AA0924' }}>*</span></label>
                 <input
@@ -833,20 +799,7 @@ function FOIRequestModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => 
         </div>
 
         {/* ── Fixed Footer (80px) ── */}
-<<<<<<< HEAD
-        <div
-          className="shrink-0"
-          style={{
-            height: '80px',
-            padding: '16px 32px',
-            borderTop: '1px solid #E0E0E0',
-            display: 'flex',
-            alignItems: 'center',
-          }}
-        >
-=======
         <div className="shrink-0 h-20 px-6 md:px-8 border-t border-[#E0E0E0] flex items-center">
->>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
           <button
             type="submit"
             form="foi-form"
@@ -910,72 +863,34 @@ export default function FOIPortalPage() {
       {viewMode === 'list' ? (
         <>
           {/* ═══ 1. SEARCH & NAVIGATION AREA ═══ */}
-<<<<<<< HEAD
-          <section className="bg-white" style={{ paddingTop: '80px', paddingBottom: '0' }}>
-            <div className="max-w-[1280px] mx-auto px-[80px]">
-              {/* Search Row */}
-              <div className="flex justify-center" style={{ marginBottom: '32px' }}>
-                <div className="relative" style={{ width: '520px', maxWidth: '100%' }}>
-=======
           <section className="bg-white pt-10 md:pt-20 pb-0">
             <div className="max-w-[1280px] mx-auto px-6 md:px-20">
               {/* Search Row */}
               <div className="flex justify-center mb-8">
                 <div className="relative w-full max-w-lg">
->>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
                   <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#555]" />
                   <input
                     type="text"
                     placeholder="Enter Search Keyword"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-<<<<<<< HEAD
-                    className="w-full pl-12 pr-5 py-3.5 border border-[#E0E0E0] rounded-lg focus:outline-none focus:border-[#AA0924] transition-colors"
-=======
                     className="w-full pl-12 pr-5 py-3.5 border border-[#E0E0E0] rounded-xl focus:outline-none focus:border-[#AA0924] transition-colors shadow-sm"
->>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
                     style={{ fontFamily: F, fontSize: '15px' }}
                   />
                 </div>
               </div>
 
               {/* Tab Row: Tabs left, Button right */}
-<<<<<<< HEAD
-              {/* Full-width Tab Navigation */}
-              <div style={{ borderBottom: '2px solid #E5E7EB' }}>
-                <div className="flex w-full">
-=======
               <div className="border-b-2 border-[#E5E7EB] overflow-x-auto no-scrollbar -mx-6 px-6 md:mx-0 md:px-0">
                 <div className="flex min-w-max md:w-full">
->>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
                   {tabs.map((tab) => {
                     const isActive = activeTab === tab.key;
                     return (
                       <button
                         key={tab.key}
                         onClick={() => setActiveTab(tab.key)}
-<<<<<<< HEAD
-                        className="shrink-0 transition-colors"
-                        style={{
-                          flex: '1 1 0%',
-                          padding: '14px 24px',
-                          paddingBottom: '14px',
-                          fontFamily: F,
-                          fontWeight: isActive ? 700 : 400,
-                          fontSize: '13px',
-                          letterSpacing: '0.5px',
-                          color: isActive ? '#AA0924' : '#666666',
-                          marginBottom: '-2px',
-                          background: 'none',
-                          border: 'none',
-                          borderBottom: isActive ? '3px solid #AA0924' : '3px solid transparent',
-                          cursor: 'pointer',
-                          textAlign: 'center',
-                        }}
-=======
                         className={`shrink-0 transition-all border-b-4 ${isActive ? 'border-[#AA0924] text-[#AA0924] font-bold' : 'border-transparent text-[#666]'} py-4 px-6 md:flex-1 text-center whitespace-nowrap text-[13px] tracking-wide uppercase`}
                         style={{ fontFamily: F }}
->>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
                       >
                         {tab.label}
                       </button>
@@ -985,34 +900,12 @@ export default function FOIPortalPage() {
               </div>
 
               {/* Make a Request Button — new row, far right */}
-<<<<<<< HEAD
-              <div className="flex justify-end" style={{ paddingTop: '32px', paddingBottom: '32px' }}>
-                <button
-                  onClick={() => setModalOpen(true)}
-                  className="flex items-center justify-center gap-2 shrink-0 hover:bg-[#880718] transition-colors"
-                  style={{
-                    height: '44px',
-                    paddingLeft: '24px',
-                    paddingRight: '24px',
-                    backgroundColor: '#AA0924',
-                    borderRadius: '100px',
-                    border: 'none',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    fontSize: '14px',
-                    fontFamily: F,
-                    cursor: 'pointer',
-                  }}
-                >
-                  <FileText className="w-4 h-4" />
-=======
               <div className="flex justify-center md:justify-end py-8">
                 <button
                   onClick={() => setModalOpen(true)}
                   className="w-full md:w-auto flex items-center justify-center gap-2 shrink-0 bg-[#AA0924] hover:bg-[#880718] text-white px-8 h-12 rounded-full transition-all font-bold text-sm shadow-md active:scale-95"
                 >
                   <Plus className="w-5 h-5" />
->>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
                   MAKE A REQUEST
                 </button>
               </div>
@@ -1020,13 +913,8 @@ export default function FOIPortalPage() {
           </section>
 
           {/* ═══ 2. REQUEST LISTING SECTION ═══ */}
-<<<<<<< HEAD
-          <section className="bg-white" style={{ paddingTop: '0px', paddingBottom: '80px' }}>
-            <div className="max-w-[1280px] mx-auto px-[80px]">
-=======
           <section className="bg-white pt-0 pb-20 md:pb-32">
             <div className="max-w-[1280px] mx-auto px-6 md:px-20">
->>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
               {filteredRequests.length === 0 ? (
                 <div className="text-center py-16">
                   <FileText className="w-12 h-12 mx-auto mb-4" style={{ color: '#D1D5DB' }} />
@@ -1060,43 +948,6 @@ export default function FOIPortalPage() {
                         />
 
                         {/* Card Content */}
-<<<<<<< HEAD
-                        <div style={{ padding: '24px 24px 24px 28px' }}>
-                          {/* Status Tag — top right of card */}
-                          <span
-                            className="absolute"
-                            style={{
-                              top: '24px',
-                              right: '24px',
-                              fontSize: '11px',
-                              fontWeight: 700,
-                              color: s.text,
-                              backgroundColor: s.bg,
-                              padding: '4px 12px',
-                              borderRadius: '100px',
-                              whiteSpace: 'nowrap',
-                              textTransform: 'uppercase',
-                              letterSpacing: '0.5px',
-                              fontFamily: F,
-                            }}
-                          >
-                            {s.label}
-                          </span>
-
-                          {/* Line 1: Title */}
-                          <h3
-                            style={{
-                              fontWeight: 700,
-                              fontSize: '18px',
-                              color: '#000000',
-                              lineHeight: '1.4',
-                              fontFamily: F,
-                              margin: 0,
-                              marginBottom: '16px',
-                              paddingRight: '120px',
-                            }}
-                          >
-=======
                         <div className="p-6 md:p-8">
                           {/* Status Tag — top right of card (mobile: relative, desktop: absolute) */}
                           <div className="flex justify-start md:block mb-4 md:mb-0">
@@ -1114,7 +965,6 @@ export default function FOIPortalPage() {
 
                           {/* Line 1: Title */}
                           <h3 className="text-lg md:text-xl font-bold text-black leading-snug mb-4 md:pr-40" style={{ fontFamily: F }}>
->>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
                             {req.title}
                           </h3>
                           {/* Line 2: Reference No. */}
@@ -1145,28 +995,11 @@ export default function FOIPortalPage() {
                           )}
 
                           {/* View Status Button — bottom right */}
-<<<<<<< HEAD
-                          <div className="flex justify-end" style={{ marginTop: '2px' }}>
-                            <button
-                              onClick={() => handleViewStatus(req)}
-                              className="bg-white border-[1.5px] border-[#AA0924] text-[#AA0924] hover:bg-black hover:border-black hover:text-white transition-colors"
-                              style={{
-                                height: '40px',
-                                paddingLeft: '20px',
-                                paddingRight: '20px',
-                                borderRadius: '8px',
-                                fontWeight: 700,
-                                fontSize: '14px',
-                                fontFamily: F,
-                                cursor: 'pointer',
-                              }}
-=======
                           <div className="flex justify-end mt-6">
                             <button
                               onClick={() => handleViewStatus(req)}
                               className="w-full md:w-auto h-11 px-6 border-2 border-[#AA0924] text-[#AA0924] bg-white hover:bg-[#AA0924] hover:text-white transition-all font-bold text-sm tracking-wide rounded-lg uppercase"
                               style={{ fontFamily: F }}
->>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
                             >
                               VIEW STATUS
                             </button>
@@ -1183,13 +1016,8 @@ export default function FOIPortalPage() {
       ) : selectedRequest ? (
         <>
           {/* ═══ 3. STATUS TRACKER — Detail View ═══ */}
-<<<<<<< HEAD
-          <section className="bg-white" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
-            <div className="max-w-[1280px] mx-auto px-[80px]">
-=======
           <section className="bg-white pt-20 md:pt-32 pb-20 md:pb-32">
             <div className="max-w-[1280px] mx-auto px-6 md:px-20">
->>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
               {/* Back */}
               <button
                 onClick={handleBackToList}
@@ -1201,27 +1029,6 @@ export default function FOIPortalPage() {
               </button>
 
               {/* Title + Status Pill row */}
-<<<<<<< HEAD
-              <div className="flex items-start justify-between" style={{ marginBottom: '12px' }}>
-                <h2 style={{ fontWeight: 800, fontSize: '28px', color: '#000000', lineHeight: '1.3', fontFamily: F, margin: 0 }}>
-                  {selectedRequest.title}
-                </h2>
-                <span
-                  style={{
-                    fontSize: '12px',
-                    fontWeight: 700,
-                    color: statusColors[selectedRequest.status].text,
-                    backgroundColor: statusColors[selectedRequest.status].bg,
-                    padding: '6px 16px',
-                    borderRadius: '100px',
-                    whiteSpace: 'nowrap',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.5px',
-                    fontFamily: F,
-                    flexShrink: 0,
-                    marginLeft: '20px',
-                    marginTop: '4px',
-=======
               <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-6">
                 <h2 className="text-2xl md:text-3xl font-extrabold text-black leading-tight" style={{ fontFamily: F, margin: 0 }}>
                   {selectedRequest.title}
@@ -1232,7 +1039,6 @@ export default function FOIPortalPage() {
                     color: statusColors[selectedRequest.status].text,
                     backgroundColor: statusColors[selectedRequest.status].bg,
                     fontFamily: F,
->>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
                   }}
                 >
                   {statusColors[selectedRequest.status].label}
@@ -1292,21 +1098,6 @@ export default function FOIPortalPage() {
               })()}
 
               {/* Progress Tracker */}
-<<<<<<< HEAD
-              <div
-                className="bg-white border border-[#E0E0E0] hover:border-[#AA0924] transition-all shadow-sm hover:shadow-md"
-                style={{
-                  borderRadius: '8px',
-                  padding: '32px',
-                  marginBottom: '40px',
-                }}
-              >
-                <h3 style={{ fontWeight: 700, fontSize: '18px', color: '#000000', marginBottom: '28px', fontFamily: F, margin: '0 0 28px 0' }}>Request Progress</h3>
-                <div className="flex items-start justify-between relative">
-                  {/* Background track line — center of first node to center of last node */}
-                  <div className="absolute hidden md:block" style={{ top: '20px', left: '10%', right: '10%', height: '2px', backgroundColor: '#E5E7EB', zIndex: 0 }} />
-                  {/* Completed track line — center of first node to center of last completed node */}
-=======
               <div className="bg-white border border-[#E0E0E0] rounded-2xl p-6 md:p-12 mb-10 shadow-sm">
                 <h3 className="text-lg md:text-xl font-bold text-black mb-8" style={{ fontFamily: F }}>Request Progress</h3>
                 
@@ -1319,35 +1110,11 @@ export default function FOIPortalPage() {
                   <div className="absolute left-[20px] top-[20px] bottom-[20px] w-0.5 bg-[#E5E7EB] md:hidden" />
 
                   {/* Desktop Completed track line */}
->>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
                   {(() => {
                     const steps = getTrackerSteps(selectedRequest.status);
                     const total = steps.length;
                     const lastCompletedIndex = steps.map((s, i) => s.completed ? i : -1).filter(i => i >= 0).pop() ?? 0;
                     if (lastCompletedIndex === 0) return null;
-<<<<<<< HEAD
-                    // Each node center is at ((2*i + 1) / (2*total)) * 100%
-                    const startPct = (1 / (2 * total)) * 100; // center of node 0
-                    const endPct = ((2 * lastCompletedIndex + 1) / (2 * total)) * 100; // center of last completed
-                    return (
-                      <div
-                        className="absolute hidden md:block"
-                        style={{
-                          top: '20px',
-                          left: `${startPct}%`,
-                          width: `${endPct - startPct}%`,
-                          height: '2px',
-                          backgroundColor: '#28A745',
-                          zIndex: 1,
-                        }}
-                      />
-                    );
-                  })()}
-                  {getTrackerSteps(selectedRequest.status).map((step, i) => (
-                    <div key={i} className="flex flex-col items-center relative z-10" style={{ flex: '1 1 0%' }}>
-                      <div
-                        className="flex items-center justify-center"
-=======
                     const startPct = (1 / (2 * total)) * 100;
                     const endPct = ((2 * lastCompletedIndex + 1) / (2 * total)) * 100;
                     return (
@@ -1376,26 +1143,17 @@ export default function FOIPortalPage() {
                     <div key={i} className="flex flex-row md:flex-col items-center md:items-center relative z-10 gap-4 md:gap-0" style={{ flex: '1 1 0%' }}>
                       <div
                         className="flex items-center justify-center shrink-0"
->>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
                         style={{
                           width: '40px',
                           height: '40px',
                           borderRadius: '50%',
                           backgroundColor: step.completed ? '#28A745' : '#E5E7EB',
-<<<<<<< HEAD
-                          marginBottom: '10px',
-=======
                           marginBottom: '0',
->>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
                         }}
                       >
                         {step.completed ? <Check className="w-5 h-5 text-white" strokeWidth={3} /> : <Clock className="w-4 h-4" style={{ color: '#9CA3AF' }} />}
                       </div>
-<<<<<<< HEAD
-                      <span className="text-center" style={{ fontWeight: 400, fontSize: '12px', color: step.completed ? '#000000' : '#9CA3AF', maxWidth: '90px', fontFamily: F }}>
-=======
                       <span className="text-left md:text-center md:mt-3" style={{ fontWeight: 400, fontSize: '13px', color: step.completed ? '#000000' : '#9CA3AF', maxWidth: '120px', fontFamily: F }}>
->>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
                         {step.label}
                       </span>
                     </div>

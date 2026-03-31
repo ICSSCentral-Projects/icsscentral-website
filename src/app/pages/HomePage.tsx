@@ -35,12 +35,7 @@ export default function HomePage() {
 
   return (
     <div className="bg-white" style={{ fontFamily: F }}>
-<<<<<<< HEAD
-      {/* HERO SECTION */}
-      <section className="relative w-full" style={{ height: '600px', overflow: 'visible' }}>
-=======
       <section className="relative w-full h-[500px] md:h-[600px] overflow-visible">
->>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
         {/* Background Image */}
         <div className="absolute inset-0 w-full h-full z-0" style={{ overflow: 'hidden' }}>
           <img
@@ -53,19 +48,7 @@ export default function HomePage() {
 
         {/* Hero Text - Centered above indicators */}
         <div
-<<<<<<< HEAD
-          className="relative z-10"
-          style={{
-            position: 'absolute',
-            top: '42%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            textAlign: 'center',
-            width: '100%',
-          }}
-=======
           className="relative z-10 w-full text-center px-4 md:px-0 absolute top-[25%] md:top-[42%] left-1/2 -translate-x-1/2 -translate-y-1/2"
->>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
         >
           <div
             style={{
@@ -77,40 +60,19 @@ export default function HomePage() {
             }}
           >
             <p
-<<<<<<< HEAD
-              className="text-white"
-              style={{
-                fontFamily: F,
-                fontSize: '36px',
-                fontWeight: 900,
-                lineHeight: '1.15',
-                letterSpacing: '0.8px',
-                textTransform: 'uppercase',
-                marginBottom: '24px',
-=======
               className="text-white text-lg md:text-4xl font-black mb-4 md:mb-6 uppercase tracking-wider"
               style={{
                 fontFamily: F,
                 lineHeight: '1.15',
->>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
                 width: '100%',
               }}
             >
               UST COLLEGE OF INFORMATION AND COMPUTING SCIENCES
             </p>
             <h1
-<<<<<<< HEAD
-              className="text-white"
-              style={{
-                fontFamily: F,
-                fontSize: '110px',
-                fontWeight: 900,
-                lineHeight: '87px',
-=======
               className="text-white text-5xl md:text-[110px] font-black leading-tight md:leading-[87px]"
               style={{
                 fontFamily: F,
->>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
               }}
             >
               STUDENT COUNCIL
@@ -135,11 +97,7 @@ export default function HomePage() {
         </button>
 
         {/* Carousel Line Indicators — 24px above the banner top edge */}
-<<<<<<< HEAD
-        <div className="absolute left-1/2 -translate-x-1/2 flex gap-3 z-20" style={{ bottom: '131px' }}>
-=======
         <div className="absolute left-1/2 -translate-x-1/2 flex gap-3 z-20 bottom-[210px] md:bottom-[131px]">
->>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
           {heroSlides.map((_, i) => (
             <button
               key={i}
@@ -163,13 +121,8 @@ export default function HomePage() {
       </section>
 
       {/* OUR LEGACY OF EXCELLENCE */}
-<<<<<<< HEAD
-      <section className="bg-white" style={{ paddingTop: '224px', paddingBottom: '80px' }}>
-        <div className="max-w-[1280px] mx-auto px-[80px]">
-=======
       <section className="bg-white pt-44 md:pt-[224px] pb-10 md:pb-[80px]">
         <div className="max-w-7xl mx-auto px-6 md:px-20">
->>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div>
               <div className="w-16 h-1 bg-[#AA0924] mb-5"></div>
@@ -177,15 +130,9 @@ export default function HomePage() {
                 className="text-[#1A1A1A] mb-5"
                 style={{ fontFamily: F, fontWeight: 700, fontSize: '32px', lineHeight: '1.2' }}
               >
-<<<<<<< HEAD
-                Our Legacy of Excellence
-              </h2>
-              <p className="text-[#555555] mb-5" style={{ fontFamily: F, fontWeight: 400, fontSize: '16px', lineHeight: '28px' }}>
-=======
                  Our Legacy of Excellence
               </h2>
               <p className="text-[#555555] mb-5 text-sm md:text-base leading-relaxed" style={{ fontFamily: F, fontWeight: 400 }}>
->>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
                 Established in 2014, the University of Santo Tomas College of Information and Computing Sciences stands as a center of innovation and excellence in technology education. Rooted in UST's rich legacy, CICS unites Computer Science, Information Technology, and Information Systems under one forward-looking college.
               </p>
               <Link
@@ -207,19 +154,11 @@ export default function HomePage() {
       </section>
 
       {/* VIDEO SECTION */}
-<<<<<<< HEAD
-      <section style={{ paddingTop: '80px', paddingBottom: '80px', backgroundColor: '#F5F5F5' }}>
-        <div className="max-w-[1280px] mx-auto px-[80px]">
-          <h3
-            className="text-center text-[#1A1A1A] mb-10"
-            style={{ fontFamily: F, fontWeight: 700, fontSize: '32px', lineHeight: '1.3' }}
-=======
       <section className="py-10 md:py-[80px] bg-[#F5F5F5]">
         <div className="max-w-7xl mx-auto px-6 md:px-20">
           <h3
             className="text-center text-[#1A1A1A] mb-8 md:mb-10 text-xl md:text-3xl font-bold leading-snug"
             style={{ fontFamily: F }}
->>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
           >
             Get to know the UST CICS Student Council
           </h3>
@@ -229,17 +168,10 @@ export default function HomePage() {
               <div className="absolute inset-0 bg-black/35" />
               <div className="absolute inset-0 flex items-center justify-center">
                 <button
-<<<<<<< HEAD
-                  className="w-[100px] h-[100px] bg-[#AA0924] rounded-full flex items-center justify-center hover:bg-[#880718] transition-all hover:scale-105 shadow-2xl"
-                  aria-label="Play video"
-                >
-                  <Play className="w-10 h-10 text-white ml-1.5" fill="white" />
-=======
                   className="w-16 h-16 md:w-[100px] md:h-[100px] bg-[#AA0924] rounded-full flex items-center justify-center hover:bg-[#880718] transition-all hover:scale-105 shadow-2xl"
                   aria-label="Play video"
                 >
                   <Play className="w-6 h-6 md:w-10 md:h-10 text-white ml-1 md:ml-1.5" fill="white" />
->>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
                 </button>
               </div>
             </div>
@@ -248,13 +180,8 @@ export default function HomePage() {
       </section>
 
       {/* UPCOMING EVENTS */}
-<<<<<<< HEAD
-      <section style={{ paddingTop: '80px', paddingBottom: '80px', backgroundColor: '#FFFFFF' }}>
-        <div className="max-w-[1280px] mx-auto px-[80px]">
-=======
       <section className="py-10 md:py-[80px] bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-20">
->>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
           {/* Header with Red Accent Line */}
           <div className="flex items-center justify-between" style={{ marginBottom: '40px' }}>
             <h2 className="text-[#1A1A1A]" style={{ fontWeight: 700, fontSize: '32px' }}>Upcoming events</h2>
@@ -263,17 +190,10 @@ export default function HomePage() {
 
           {/* Featured Card */}
           {featuredEvent && (
-<<<<<<< HEAD
-            <div className="bg-white rounded-2xl overflow-hidden shadow-lg border border-[#E0E0E0]" style={{ borderRadius: '16px' }}>
-              <div className="grid grid-cols-[60%_40%]">
-                {/* Image - 60% */}
-                <div className="h-[500px]">
-=======
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg border border-[#E0E0E0]">
               <div className="grid grid-cols-1 md:grid-cols-[60%_40%]">
                 {/* Image */}
                 <div className="h-[300px] md:h-[500px]">
->>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
                   <img src={featuredEvent.image} alt={featuredEvent.title} className="w-full h-full object-cover" />
                 </div>
 

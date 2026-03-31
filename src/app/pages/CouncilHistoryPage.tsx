@@ -45,13 +45,8 @@ export default function CouncilHistoryPage() {
       <InnerHeroBanner title="The Council" breadcrumb="About / The Council" />
 
       {/* Mission Section */}
-<<<<<<< HEAD
-      <section className="bg-white" style={{ paddingTop: '80px', paddingBottom: '0px' }}>
-        <div className="max-w-[1200px] mx-auto px-[80px]">
-=======
       <section className="bg-white pt-16 md:pt-20 pb-0">
         <div className="max-w-[1200px] mx-auto px-6 md:px-20">
->>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
           <div className="flex flex-col items-center text-center">
             <h2 className="text-[#1A1A1A]" style={{ fontFamily: F, fontWeight: 700, fontSize: '32px' }}>
               MISSION
@@ -67,13 +62,8 @@ export default function CouncilHistoryPage() {
       <SectionDivider />
 
       {/* Vision Section */}
-<<<<<<< HEAD
-      <section className="bg-white" style={{ paddingTop: '0px', paddingBottom: '80px' }}>
-        <div className="max-w-[1200px] mx-auto px-[80px]">
-=======
       <section className="bg-white pt-0 pb-16 md:pb-20">
         <div className="max-w-[1200px] mx-auto px-6 md:px-20">
->>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
           <div className="flex flex-col items-center text-center">
             <h2 className="text-[#1A1A1A]" style={{ fontFamily: F, fontWeight: 700, fontSize: '32px' }}>
               VISION
@@ -87,41 +77,25 @@ export default function CouncilHistoryPage() {
       </section>
 
       {/* Partners Section */}
-<<<<<<< HEAD
-      <section className="bg-[#F5F5F5]" style={{ paddingTop: '48px', paddingBottom: '48px' }}>
-        <div className="max-w-[1200px] mx-auto px-[80px]">
-=======
       <section className="bg-[#F5F5F5] py-12">
         <div className="max-w-[1200px] mx-auto px-6 md:px-20">
->>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
           <div className="flex flex-col items-center">
             <h2 className="text-center text-[#1A1A1A]" style={{ fontFamily: F, fontWeight: 700, fontSize: '32px', letterSpacing: '0.5px' }}>
               OUR PARTNERS
             </h2>
             <div style={{ width: '104px', height: '4px', backgroundColor: '#AA0924', marginTop: '12px' }}></div>
           </div>
-<<<<<<< HEAD
-          <div className="flex items-center justify-center" style={{ gap: '80px', marginTop: '40px' }}>
-            <img src={logo933} alt="933 Creatives" style={{ maxHeight: '220px', width: 'auto' }} />
-            <img src={logoDatacamp} alt="DataCamp Donates" style={{ maxHeight: '220px', width: 'auto' }} />
-=======
           <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-20 mt-10">
             <img src={logo933} alt="933 Creatives" className="h-40 md:h-56 w-auto" />
             <img src={logoDatacamp} alt="DataCamp Donates" className="h-40 md:h-56 w-auto" />
->>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
           </div>
         </div>
       </section>
 
       {/* Programs Section */}
-<<<<<<< HEAD
-      <section className="bg-white" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
-        <div className="max-w-[1200px] mx-auto px-[80px]">
-=======
       <section className="bg-white py-16 md:py-20">
         <div className="max-w-[1200px] mx-auto px-6 md:px-20">
 
->>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
           <div className="flex flex-col items-center text-center mb-12">
             <h2 className="text-[#1A1A1A]" style={{ fontFamily: F, fontWeight: 700, fontSize: '32px' }}>
               PROGRAMS
@@ -129,24 +103,6 @@ export default function CouncilHistoryPage() {
             <div style={{ width: '104px', height: '4px', backgroundColor: '#AA0924', marginTop: '12px' }}></div>
           </div>
           
-<<<<<<< HEAD
-          <div className="flex flex-col gap-6">
-            {programs.map((program) => (
-              <div 
-                key={program.id} 
-                className="bg-white rounded-xl overflow-hidden shadow-lg border border-[#E0E0E0] hover:shadow-xl transition-shadow flex flex-row"
-                style={{ height: '280px' }}
-              >
-                {/* Left Side - Geometric Pattern with CICS Logo (40%) */}
-                <div 
-                  className="relative flex-shrink-0 flex items-center justify-center" 
-                  style={{ 
-                    width: '40%',
-                    background: 'linear-gradient(135deg, #AA0924 0%, #AA0924 35%, #F4C430 35%, #F4C430 50%, #808080 50%, #808080 70%, #E0E0E0 70%)',
-                    position: 'relative',
-                    overflow: 'hidden',
-                    padding: '6px'
-=======
           <div className="flex flex-col gap-8 md:gap-6">
             {programs.map((program) => (
               <div 
@@ -162,7 +118,6 @@ export default function CouncilHistoryPage() {
                     position: 'relative',
                     overflow: 'hidden',
                     padding: '12px'
->>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
                   }}
                 >
                   {/* Diagonal Stripes Pattern */}
@@ -188,21 +143,6 @@ export default function CouncilHistoryPage() {
                   <img 
                     src={logoCICS} 
                     alt="UST CICS Seal" 
-<<<<<<< HEAD
-                    className="relative"
-                    style={{ 
-                      width: 'auto', 
-                      height: '268px',
-                      maxWidth: '100%',
-                      zIndex: 1
-                    }} 
-                  />
-                </div>
-
-                {/* Right Side - Content Area (60%) */}
-                <div className="flex-1 p-8 flex flex-col bg-white">
-                  <h3 className="text-[#1A1A1A] mb-4" style={{ fontFamily: F, fontWeight: 700, fontSize: '24px', letterSpacing: '0.3px' }}>
-=======
                     className="relative h-40 md:h-[268px] w-auto max-w-full z-10 scale-110 md:scale-100"
                   />
 
@@ -212,7 +152,6 @@ export default function CouncilHistoryPage() {
                 <div className="flex-1 p-6 md:p-8 flex flex-col bg-white">
                   <h3 className="text-xl md:text-2xl font-bold text-[#1A1A1A] mb-4 tracking-tight" style={{ fontFamily: F }}>
 
->>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
                     {program.title}
                   </h3>
                   <ul className="flex-1 space-y-2 mb-4">

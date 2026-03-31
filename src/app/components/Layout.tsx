@@ -109,13 +109,8 @@ export default function Layout() {
       <div className="sticky top-0 z-50 flex flex-col">
         {/* Announcement Banner */}
         {showBanner && (
-<<<<<<< HEAD
-          <div className="bg-black text-white text-center relative flex items-center justify-center" style={{ height: '36px' }}>
-            <p style={{ fontFamily: F, fontWeight: 400, fontSize: '13px' }}>
-=======
           <div className="bg-black text-white text-center relative flex items-center justify-center px-8" style={{ minHeight: '36px', height: 'auto', paddingTop: '8px', paddingBottom: '8px' }}>
             <p style={{ fontFamily: F, fontWeight: 400, fontSize: '13px', lineHeight: '1.4' }}>
->>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
               Mark Your Calendars! An Upcoming CICS Student Council Event You Won't Want To Miss!
             </p>
             <button
@@ -129,21 +124,12 @@ export default function Layout() {
         )}
 
         {/* Navigation Bar */}
-<<<<<<< HEAD
-        <nav className="bg-[#AA0924]" style={{ height: '85px' }} ref={navRef}>
-        <div className="h-full flex items-center justify-between" style={{ paddingLeft: '80px', paddingRight: '80px' }}>
-          {/* Logo */}
-          <Link to="/" className="flex items-center shrink-0" style={{ gap: '16px' }}>
-            <img src={icsscLogoWhite} alt="UST ICSSC Logo" style={{ width: 'auto', height: '50px' }} />
-            <span className="text-white" style={{ fontFamily: F, fontWeight: 700, fontSize: '32px', lineHeight: '1' }}>
-=======
         <nav className="bg-[#AA0924] h-[70px] md:h-[85px]" ref={navRef}>
         <div className="h-full flex items-center justify-between px-6 md:px-20">
           {/* Logo */}
           <Link to="/" className="flex items-center shrink-0 gap-3 md:gap-4">
             <img src={icsscLogoWhite} alt="UST ICSSC Logo" className="h-8 md:h-[50px] w-auto" />
             <span className="text-white text-xl md:text-3xl font-bold" style={{ fontFamily: F, lineHeight: '1' }}>
->>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
               UST ICSSC
             </span>
           </Link>
@@ -313,18 +299,6 @@ export default function Layout() {
       </main>
 
       {/* Footer */}
-<<<<<<< HEAD
-      <footer className="bg-black text-white w-full" style={{ fontFamily: F, paddingTop: '60px', paddingBottom: '24px', paddingLeft: '80px', paddingRight: '80px' }}>
-        <div className="flex items-start justify-between pb-12" style={{ width: '100%' }}>
-          {/* Column 1 - Logo + Tagline + Social - LEFT ALIGNED */}
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '20px', maxWidth: '320px' }}>
-            {/* Logo and Title - Horizontal Stack with Center Alignment */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '18px', marginTop: '-14px' }}>
-              <img src={icsscLogoWhite} alt="CICS Student Council Logo" style={{ width: 'auto', height: '68px' }} />
-              <span style={{ fontWeight: 700, fontSize: '28px', lineHeight: '1' }}>UST ICSSC</span>
-            </div>
-            <p className="text-white" style={{ fontSize: '16px', fontWeight: 400, lineHeight: '1.6' }}>
-=======
       <footer className="bg-black text-white w-full px-6 md:px-20 py-10 md:pt-[60px] md:pb-[24px]" style={{ fontFamily: F }}>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-8 pb-12">
           {/* Column 1 - Logo + Tagline + Social */}
@@ -334,7 +308,6 @@ export default function Layout() {
               <span className="text-2xl md:text-[28px] font-bold" style={{ lineHeight: '1' }}>UST ICSSC</span>
             </div>
             <p className="text-white text-sm md:text-base font-normal leading-relaxed">
->>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
               Leading through innovation and growing together in purpose, we strive to empower Thomasians to create meaningful change in a digital world.
             </p>
             {/* Social Icons - Left Aligned */}
@@ -427,16 +400,6 @@ export default function Layout() {
           </div>
 
           {/* Column 2 - Quick Links */}
-<<<<<<< HEAD
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <h4 className="text-white" style={{ fontWeight: 700, fontSize: '24px', marginBottom: '24px' }}>QUICK LINKS</h4>
-            <ul style={{ display: 'flex', flexDirection: 'column', gap: '12px' }} className="text-white">
-              <li><Link to="/about/council" className="hover:text-[#AA0924] transition-colors" style={{ fontSize: '16px', fontWeight: 400, whiteSpace: 'nowrap' }}>The Council</Link></li>
-              <li><Link to="/about/members" className="hover:text-[#AA0924] transition-colors" style={{ fontSize: '16px', fontWeight: 400, whiteSpace: 'nowrap' }}>Meet the Council Members</Link></li>
-              <li><Link to="/about/organizations" className="hover:text-[#AA0924] transition-colors" style={{ fontSize: '16px', fontWeight: 400, whiteSpace: 'nowrap' }}>CICS Organizations</Link></li>
-              <li><Link to="/blogs" className="hover:text-[#AA0924] transition-colors" style={{ fontSize: '16px', fontWeight: 400, whiteSpace: 'nowrap' }}>News & Updates</Link></li>
-              <li><Link to="/events" className="hover:text-[#AA0924] transition-colors" style={{ fontSize: '16px', fontWeight: 400, whiteSpace: 'nowrap' }}>Events</Link></li>
-=======
           <div className="flex flex-col">
             <h4 className="text-white font-bold text-xl md:text-2xl mb-6">QUICK LINKS</h4>
             <ul className="flex flex-col gap-3 text-white">
@@ -445,51 +408,20 @@ export default function Layout() {
               <li><Link to="/about/organizations" className="hover:text-[#AA0924] transition-colors text-sm md:text-base font-normal whitespace-nowrap">CICS Organizations</Link></li>
               <li><Link to="/blogs" className="hover:text-[#AA0924] transition-colors text-sm md:text-base font-normal whitespace-nowrap">News & Updates</Link></li>
               <li><Link to="/events" className="hover:text-[#AA0924] transition-colors text-sm md:text-base font-normal whitespace-nowrap">Events</Link></li>
->>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
             </ul>
           </div>
 
           {/* Column 3 - Services */}
-<<<<<<< HEAD
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <h4 className="text-white" style={{ fontWeight: 700, fontSize: '24px', marginBottom: '24px' }}>SERVICES</h4>
-            <ul style={{ display: 'flex', flexDirection: 'column', gap: '12px' }} className="text-white">
-              <li><Link to="/services/straw-desk" className="hover:text-[#AA0924] transition-colors" style={{ fontSize: '16px', fontWeight: 400, whiteSpace: 'nowrap' }}>STRAW Desk</Link></li>
-              <li><Link to="/services/foi-portal" className="hover:text-[#AA0924] transition-colors" style={{ fontSize: '16px', fontWeight: 400, whiteSpace: 'nowrap' }}>FOI Portal</Link></li>
-              <li><Link to="/services/directory" className="hover:text-[#AA0924] transition-colors" style={{ fontSize: '16px', fontWeight: 400, whiteSpace: 'nowrap' }}>Directory & Documents</Link></li>
-=======
           <div className="flex flex-col">
             <h4 className="text-white font-bold text-xl md:text-2xl mb-6">SERVICES</h4>
             <ul className="flex flex-col gap-3 text-white">
               <li><Link to="/services/straw-desk" className="hover:text-[#AA0924] transition-colors text-sm md:text-base font-normal whitespace-nowrap">STRAW Desk</Link></li>
               <li><Link to="/services/foi-portal" className="hover:text-[#AA0924] transition-colors text-sm md:text-base font-normal whitespace-nowrap">FOI Portal</Link></li>
               <li><Link to="/services/directory" className="hover:text-[#AA0924] transition-colors text-sm md:text-base font-normal whitespace-nowrap">Directory & Documents</Link></li>
->>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
             </ul>
           </div>
 
           {/* Column 4 - Contact Us */}
-<<<<<<< HEAD
-          <div style={{ display: 'flex', flexDirection: 'column', maxWidth: '300px' }}>
-            <h4 className="text-white" style={{ fontWeight: 700, fontSize: '24px', marginBottom: '24px' }}>CONTACT US</h4>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }} className="text-white">
-              <div className="flex items-start" style={{ gap: '12px' }}>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="#AA0924" style={{ marginTop: '2px', flexShrink: 0 }}>
-                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                </svg>
-                <a href="mailto:sc.cics@ust.edu.ph" className="hover:text-[#AA0924] transition-colors" style={{ fontSize: '16px', fontWeight: 400 }}>sc.cics@ust.edu.ph</a>
-              </div>
-              <div className="flex items-start" style={{ gap: '12px' }}>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="#AA0924" style={{ marginTop: '2px', flexShrink: 0 }}>
-                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                </svg>
-                <p className="leading-relaxed" style={{ fontSize: '16px', fontWeight: 400 }}>
-                  {'Rm 2005 Saint Pier Giorgio'}<br />
-                  {'Frassati, O.P. Building,'}<br />
-                  {'University Of Santo Tomas,'}<br />
-                  {'Espana Boulevard, Manila'}<br />
-                  {'Philippines'}
-=======
           <div className="flex flex-col max-w-xs">
             <h4 className="text-white font-bold text-xl md:text-2xl mb-6">CONTACT US</h4>
             <div className="flex flex-col gap-3 text-white">
@@ -509,7 +441,6 @@ export default function Layout() {
                   University Of Santo Tomas,<br />
                   Espana Boulevard, Manila<br />
                   Philippines
->>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
                 </p>
               </div>
             </div>
