@@ -77,12 +77,21 @@ export default function BlogsPage() {
     <div className="min-h-screen bg-white" style={{ fontFamily: F }}>
       <InnerHeroBanner title="News & Updates" breadcrumb="Latest / News & Updates" />
 
+<<<<<<< HEAD
       <div className="max-w-[1280px] mx-auto px-[80px]" style={{ paddingTop: '80px', paddingBottom: '0px' }}>
         {/* TIKTOK FEED SECTION */}
         <section>
           {/* Header with Red Accent Line */}
           <div className="flex items-center justify-between" style={{ marginBottom: '40px' }}>
             <h2 className="text-[#1A1A1A]" style={{ fontFamily: F, fontWeight: 700, fontSize: '32px' }}>
+=======
+      <div className="max-w-[1280px] mx-auto px-6 md:px-20" style={{ paddingTop: '60px', paddingBottom: '0px' }}>
+        {/* TIKTOK FEED SECTION */}
+        <section>
+          {/* Header with Red Accent Line */}
+          <div className="flex items-center justify-between" style={{ marginBottom: '32px' }}>
+            <h2 className="text-[#1A1A1A] text-2xl md:text-[32px] font-bold" style={{ fontFamily: F }}>
+>>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
               Tiktok
             </h2>
             <div className="w-20 h-1 bg-[#AA0924]"></div>
@@ -131,6 +140,7 @@ export default function BlogsPage() {
 
       <SectionDivider />
 
+<<<<<<< HEAD
       <div className="max-w-[1280px] mx-auto px-[80px]" style={{ paddingBottom: '80px' }}>
         {/* LATEST ARTICLES SECTION */}
         <section>
@@ -140,6 +150,17 @@ export default function BlogsPage() {
               Latest articles
             </h2>
             <div className="relative flex-shrink-0" style={{ width: '340px' }}>
+=======
+      <div className="max-w-[1280px] mx-auto px-6 md:px-20" style={{ paddingBottom: '80px' }}>
+        {/* LATEST ARTICLES SECTION */}
+        <section>
+          {/* Title Row with Search Bar */}
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6" style={{ marginBottom: '24px' }}>
+            <h2 className="text-[#1A1A1A] text-2xl md:text-[32px] font-bold" style={{ fontFamily: F }}>
+              Latest articles
+            </h2>
+            <div className="relative w-full md:w-[340px] flex-shrink-0">
+>>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#555]" />
               <input
                 type="text"
@@ -153,8 +174,13 @@ export default function BlogsPage() {
           </div>
 
           {/* Full-Width Filter Tabs */}
+<<<<<<< HEAD
           <div style={{ borderBottom: '2px solid #E5E7EB', marginBottom: '40px' }}>
             <div className="flex w-full">
+=======
+          <div className="border-b-2 border-[#E5E7EB] mb-10 overflow-x-auto scrollbar-hide">
+            <div className="flex w-max md:w-full min-w-full">
+>>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
               {categories.map((category) => {
                 const isActive = selectedCategory === category;
                 return (
@@ -192,8 +218,12 @@ export default function BlogsPage() {
                 {paginatedPosts.map((post) => (
                   <article 
                     key={post.id} 
+<<<<<<< HEAD
                     className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all hover:-translate-y-1 border border-[#E0E0E0] flex flex-col" 
                     style={{ borderRadius: '16px', height: '560px' }}
+=======
+                    className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all hover:-translate-y-1 border border-[#E0E0E0] flex flex-col h-full" 
+>>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
                   >
                   {/* Image with Pinned Badge */}
                   <div className="h-52 overflow-hidden relative flex-shrink-0">

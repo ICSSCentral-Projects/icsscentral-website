@@ -47,7 +47,11 @@ export default function EventsPage() {
 
       {/* Search & Filters */}
       <section className="bg-white shadow-sm border-b border-[#E0E0E0]">
+<<<<<<< HEAD
         <div className="max-w-[1280px] mx-auto px-[80px] py-6">
+=======
+        <div className="max-w-[1280px] mx-auto px-6 md:px-20 py-6">
+>>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
           <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
             {/* Search Bar - Left */}
             <div className="relative flex-1 max-w-md">
@@ -83,38 +87,66 @@ export default function EventsPage() {
         </div>
       </section>
 
+<<<<<<< HEAD
       <div className="max-w-[1280px] mx-auto px-[80px]" style={{ paddingTop: '60px', paddingBottom: '0px' }}>
+=======
+      <div className="max-w-[1280px] mx-auto px-6 md:px-20" style={{ paddingTop: '60px', paddingBottom: '0px' }}>
+>>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
         {/* FEATURED SECTION */}
         {featuredEvent && (
           <section>
             {/* Header with Red Accent Line */}
+<<<<<<< HEAD
             <div className="flex items-center justify-between" style={{ marginBottom: '40px' }}>
               <h2 className="text-[#1A1A1A]" style={{ fontWeight: 700, fontSize: '32px' }}>Upcoming events</h2>
+=======
+            <div className="flex items-center justify-between" style={{ marginBottom: '32px' }}>
+              <h2 className="text-[#1A1A1A] text-2xl md:text-[32px] font-bold">Upcoming events</h2>
+>>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
               <div className="w-20 h-1 bg-[#AA0924]"></div>
             </div>
 
             {/* Featured Card */}
+<<<<<<< HEAD
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg border border-[#E0E0E0]" style={{ borderRadius: '16px' }}>
               <div className="grid grid-cols-[60%_40%]">
                 {/* Image - 60% */}
                 <div className="h-[500px]">
+=======
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg border border-[#E0E0E0]">
+              <div className="grid grid-cols-1 md:grid-cols-[60%_40%]">
+                {/* Image - 100% on mobile, 60% on desktop */}
+                <div className="h-[300px] md:h-[500px]">
+>>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
                   <img src={featuredEvent.image} alt={featuredEvent.title} className="w-full h-full object-cover" />
                 </div>
 
                 {/* Content - 40% */}
+<<<<<<< HEAD
                 <div className="p-10 flex flex-col justify-center">
+=======
+                <div className="p-6 md:p-10 flex flex-col justify-center">
+>>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
                   {/* Tags */}
                   <div className="flex items-center gap-3 mb-4">
                     <span className="bg-[#AA0924] text-white px-3 py-1 rounded text-xs" style={{ fontWeight: 600 }}>{featuredEvent.category}</span>
                   </div>
 
                   {/* Title */}
+<<<<<<< HEAD
                   <h2 className="text-[#1A1A1A] mb-4" style={{ fontWeight: 700, fontSize: '24px', lineHeight: '1.3' }}>
+=======
+                  <h2 className="text-[#1A1A1A] text-xl md:text-2xl mb-4 font-bold leading-tight">
+>>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
                     {featuredEvent.title}
                   </h2>
 
                   {/* Description */}
+<<<<<<< HEAD
                   <p className="text-[#555555] mb-6" style={{ fontSize: '16px', lineHeight: '26px', fontWeight: 400 }}>
+=======
+                  <p className="text-[#555555] text-sm md:text-base mb-6 font-normal leading-relaxed">
+>>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
                     {featuredEvent.description}
                   </p>
 
@@ -158,13 +190,21 @@ export default function EventsPage() {
       {/* Divider between Upcoming Events and Events list */}
       {limitedEvents.length > 0 && <SectionDivider />}
 
+<<<<<<< HEAD
       <div className="max-w-[1280px] mx-auto px-[80px]" style={{ paddingTop: '0px', paddingBottom: '100px' }}>
+=======
+      <div className="max-w-[1280px] mx-auto px-6 md:px-20" style={{ paddingTop: '0px', paddingBottom: '100px' }}>
+>>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
         {/* ALL EVENTS SECTION — only show if there are cards */}
         {limitedEvents.length > 0 && (
         <section>
           {/* Dynamic Header with Red Accent Line */}
           <div className="flex items-center justify-between" style={{ marginBottom: '40px' }}>
+<<<<<<< HEAD
             <h2 className="text-[#1A1A1A]" style={{ fontWeight: 700, fontSize: '32px' }}>
+=======
+            <h2 className="text-[#1A1A1A] text-2xl md:text-[32px] font-bold">
+>>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
               {selectedCategory === "All" ? "All events" : `${selectedCategory} events`}
             </h2>
             <div className="w-20 h-1 bg-[#AA0924]"></div>
@@ -192,7 +232,11 @@ export default function EventsPage() {
                     </div>
 
                     {/* Title */}
+<<<<<<< HEAD
                     <h3 className="text-[#1A1A1A] mb-3 line-clamp-2" style={{ fontWeight: 700, fontSize: '24px', lineHeight: '1.4' }}>
+=======
+                    <h3 className="text-[#1A1A1A] text-xl md:text-2xl mb-3 font-bold leading-tight line-clamp-2">
+>>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
                       {event.title}
                     </h3>
 

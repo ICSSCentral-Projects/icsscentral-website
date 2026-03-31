@@ -8,7 +8,7 @@ interface InnerHeroBannerProps {
 
 export default function InnerHeroBanner({ title, breadcrumb, overlayOpacity = 0.55 }: InnerHeroBannerProps) {
   return (
-    <section className="relative w-full" style={{ height: '411px' }}>
+    <section className="relative w-full h-[250px] md:h-[411px]">
       <div className="absolute inset-0">
         <img
           src={cics1}
@@ -17,27 +17,23 @@ export default function InnerHeroBanner({ title, breadcrumb, overlayOpacity = 0.
         />
         <div className="absolute inset-0" style={{ backgroundColor: `rgba(0, 0, 0, ${overlayOpacity})` }} />
       </div>
-      <div className="relative h-full flex flex-col items-center justify-center text-center px-4">
+      <div className="relative h-full flex flex-col items-center justify-center text-center px-6">
         <h1
-          className="text-white uppercase mb-3"
+          className="text-white uppercase mb-2 md:mb-3 text-3xl md:text-6xl font-extrabold"
           style={{
             fontFamily: "'Poppins', sans-serif",
-            fontWeight: 800,
-            fontSize: '60px',
-            lineHeight: '87px',
             textAlign: 'center',
+            lineHeight: '1.2',
           }}
         >
           {title}
         </h1>
         <p
-          className="text-white"
+          className="text-white text-base md:text-2xl font-normal"
           style={{
             fontFamily: "'Poppins', sans-serif",
-            fontWeight: 400,
-            fontSize: '28px',
-            lineHeight: '64px',
             textAlign: 'center',
+            lineHeight: '1.5',
           }}
         >
           {breadcrumb}

@@ -69,11 +69,11 @@ export default function CouncilMembersPage() {
       <InnerHeroBanner title="Meet the Council Members" breadcrumb="About / Meet the Council Members" />
 
       {/* Advisers */}
-      <section style={{ paddingTop: '80px', paddingBottom: '0px' }}>
-        <div className="max-w-[1280px] mx-auto px-[80px]">
+      <section className="pt-20 md:pt-40 pb-0">
+        <div className="max-w-[1280px] mx-auto px-6 md:px-20">
           {/* Section Header with Centered Red Accent Line */}
           <div className="mb-10 text-center">
-            <h2 className="text-[#1A1A1A] mb-3" style={{ fontFamily: F, fontWeight: 700, fontSize: '32px', letterSpacing: '1px' }}>
+            <h2 className="text-[#1A1A1A] text-2xl md:text-[32px] font-bold mb-3 uppercase tracking-wider" style={{ fontFamily: F }}>
               ADVISERS
             </h2>
             <div className="w-[104px] h-1 bg-[#AA0924] mx-auto mb-6"></div>
@@ -88,7 +88,7 @@ export default function CouncilMembersPage() {
 
           {/* 2-Column Grid for Advisers - Centered */}
           <div className="flex justify-center">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10" style={{ maxWidth: '640px' }}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-2xl">
               {advisers.map((member, index) => (
                 <div 
                   key={index} 
@@ -128,11 +128,11 @@ export default function CouncilMembersPage() {
       <SectionDivider />
 
       {/* Executive Board */}
-      <section className="bg-white" style={{ paddingTop: '0px', paddingBottom: '80px' }}>
-        <div className="max-w-[1280px] mx-auto px-[80px]">
+      <section className="bg-white pt-0 pb-20 md:pb-40">
+        <div className="max-w-[1280px] mx-auto px-6 md:px-20">
           {/* Section Header with Centered Red Accent Line */}
           <div className="mb-10 text-center">
-            <h2 className="text-[#1A1A1A] mb-3" style={{ fontFamily: F, fontWeight: 700, fontSize: '32px', letterSpacing: '1px' }}>
+            <h2 className="text-[#1A1A1A] text-2xl md:text-[32px] font-bold mb-3 uppercase tracking-wider" style={{ fontFamily: F }}>
               EXECUTIVE BOARD
             </h2>
             <div className="w-[104px] h-1 bg-[#AA0924] mx-auto mb-6"></div>
@@ -256,9 +256,9 @@ export default function CouncilMembersPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-[#AA0924]" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
-        <div className="max-w-[800px] mx-auto px-8 text-center">
-          <h2 className="text-white mb-5" style={{ fontFamily: F, fontWeight: 700, fontSize: '32px' }}>Want to Join the Council?</h2>
+      <section className="bg-[#AA0924] py-20 px-6">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-white text-2xl md:text-[32px] font-bold mb-5" style={{ fontFamily: F }}>Want to Join the Council?</h2>
           <p className="text-white/90 mb-8" style={{ fontFamily: F, fontSize: '16px', lineHeight: '26px' }}>
             Become part of a team dedicated to making a difference. Council elections are held annually at the start of each academic year.
           </p>

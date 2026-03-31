@@ -50,10 +50,17 @@ export default function DirectoryPage() {
       />
 
       {/* SECTION 1: CONTACT DIRECTORY */}
+<<<<<<< HEAD
       <section style={{ paddingTop: '80px', paddingBottom: '80px' }}>
         <div className="max-w-[1200px] mx-auto px-[80px]">
           <div className="flex flex-col items-center mb-12">
             <h2 className="text-[#1A1A1A] text-center" style={{ fontWeight: 700, fontSize: '32px', textTransform: 'uppercase' as const }}>
+=======
+      <section className="py-20">
+        <div className="max-w-[1280px] mx-auto px-6 md:px-20">
+          <div className="flex flex-col items-center mb-12">
+            <h2 className="text-[#1A1A1A] text-center text-2xl md:text-[32px] font-bold uppercase">
+>>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
               Contact Directory
             </h2>
             <div style={{ width: '104px', height: '4px', backgroundColor: '#AA0924', marginTop: '12px' }}></div>
@@ -124,6 +131,7 @@ export default function DirectoryPage() {
       </section>
 
       {/* SECTION 2: VISIT US */}
+<<<<<<< HEAD
       <section className="bg-[#F9FAFB]" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
         <div className="max-w-[1200px] mx-auto px-[80px]">
           <div className="flex items-center justify-between">
@@ -142,6 +150,26 @@ export default function DirectoryPage() {
                     Monday To Saturday - 8:00 AM To 12:00 NN & 1:00 PM To 5:00 PM
                   </p>
                   <p className="text-[#000000]" style={{ fontSize: '16px', fontWeight: 400 }}>
+=======
+      <section className="bg-[#F9FAFB] py-20">
+        <div className="max-w-[1280px] mx-auto px-6 md:px-20">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+            {/* Left side: icon + header + details */}
+            <div className="flex items-start gap-4">
+              <MapPin className="w-6 h-6 text-[#1A1A1A] flex-shrink-0 mt-1" />
+              <div>
+                <h2 className="text-[#1A1A1A] text-xl md:text-2xl font-bold mb-2">
+                  Visit the CICS Office
+                </h2>
+                <div className="flex flex-col gap-1">
+                  <p className="text-[#333333] text-sm md:text-base font-normal">
+                    2nd Floor, Saint Pier Giorgio Frassati O.P., Building
+                  </p>
+                  <p className="text-[#333333] text-sm md:text-base font-normal">
+                    Monday To Saturday - 8:00 AM To 12:00 NN & 1:00 PM To 5:00 PM
+                  </p>
+                  <p className="text-[#333333] text-sm md:text-base font-normal font-semibold">
+>>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
                     Closed On Sundays
                   </p>
                 </div>
@@ -153,20 +181,34 @@ export default function DirectoryPage() {
               href="https://maps.app.goo.gl/ijEyc26A63Hp3uAT7"
               target="_blank"
               rel="noopener noreferrer"
+<<<<<<< HEAD
               className="inline-flex items-center gap-2 border-2 border-[#AA0924] text-[#AA0924] bg-transparent px-6 py-3 hover:bg-black hover:border-black hover:text-white transition-colors flex-shrink-0"
               style={{ fontWeight: 600, fontSize: '15px', borderRadius: '8px', textTransform: 'uppercase' }}
             >
               VISIT LINK
+=======
+              className="w-full md:w-auto inline-flex items-center justify-center gap-2 border-2 border-[#AA0924] text-[#AA0924] bg-transparent px-8 py-3.5 hover:bg-[#AA0924] hover:text-white transition-all flex-shrink-0 font-bold text-sm tracking-wide rounded-lg uppercase"
+            >
+              VISIT LINK
+              <ExternalLink className="w-4 h-4" />
+>>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
             </a>
           </div>
         </div>
       </section>
 
       {/* SECTION 3: DOCUMENTS & FILES */}
+<<<<<<< HEAD
       <section style={{ paddingTop: '80px', paddingBottom: '80px' }}>
         <div className="max-w-[1200px] mx-auto px-[80px]">
           <div className="flex flex-col items-center mb-10">
             <h2 className="text-[#1A1A1A] text-center" style={{ fontWeight: 700, fontSize: '32px', textTransform: 'uppercase' as const }}>
+=======
+      <section className="py-20 lg:py-32">
+        <div className="max-w-[1280px] mx-auto px-6 md:px-20">
+          <div className="flex flex-col items-center mb-10 text-center">
+            <h2 className="text-[#1A1A1A] text-2xl md:text-[32px] font-bold uppercase">
+>>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
               Documents & Files
             </h2>
             <div style={{ width: '104px', height: '4px', backgroundColor: '#AA0924', marginTop: '12px' }}></div>
@@ -176,6 +218,7 @@ export default function DirectoryPage() {
             {documents.map((doc, i) => (
               <div
                 key={i}
+<<<<<<< HEAD
                 className="bg-white rounded-lg p-8 border border-[#E0E0E0] hover:border-[#AA0924] transition-all shadow-sm hover:shadow-md flex items-start justify-between gap-6"
               >
                 <div className="flex items-start gap-4 flex-1">
@@ -187,6 +230,19 @@ export default function DirectoryPage() {
                       {doc.title}
                     </h4>
                     <p className="text-[#555555]" style={{ fontSize: '16px', lineHeight: '1.6', fontWeight: 400 }}>
+=======
+                className="bg-white rounded-2xl p-6 md:p-8 border border-[#E0E0E0] hover:border-[#AA0924] transition-all shadow-sm hover:shadow-md flex flex-col md:flex-row items-start justify-between gap-6"
+              >
+                <div className="flex items-start gap-4 flex-1">
+                  <div className="w-12 h-12 bg-[#AA0924] rounded-xl flex items-center justify-center flex-shrink-0">
+                    <FileText className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="text-[#1A1A1A] text-lg md:text-xl font-bold leading-tight mb-2">
+                      {doc.title}
+                    </h4>
+                    <p className="text-[#555555] text-sm md:text-base font-normal leading-relaxed">
+>>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
                       {doc.description}
                     </p>
                   </div>
@@ -195,8 +251,12 @@ export default function DirectoryPage() {
                   href={doc.link}
                   target="_blank"
                   rel="noopener noreferrer"
+<<<<<<< HEAD
                   className="inline-flex items-center gap-2 bg-[#AA0924] text-white px-6 py-3 rounded hover:bg-[#880718] transition-colors flex-shrink-0"
                   style={{ fontWeight: 700, fontSize: '16px' }}
+=======
+                  className="w-full md:w-auto inline-flex items-center justify-center gap-2 bg-[#AA0924] text-white px-7 py-3 rounded-lg hover:bg-[#880718] transition-colors flex-shrink-0 font-bold text-sm"
+>>>>>>> 498ab5fb45002b93d89092ee7c4df4620fbd3fcf
                 >
                   <Download className="w-4 h-4" />
                   Download PDF
