@@ -770,7 +770,6 @@ function FOIRequestModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => 
                 >
                   {isSubmitting ? 'Submitting...' : 'SUBMIT REQUEST'}
                 </button>
-          </>
         )}
       </div>
     </div>
