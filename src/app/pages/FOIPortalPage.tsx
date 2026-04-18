@@ -744,32 +744,32 @@ function FOIRequestModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => 
 
         {/* ── Fixed Footer (80px) ── */}
         <div className="shrink-0 h-20 px-6 md:px-8 border-t border-[#E0E0E0] flex items-center">
-         {submitError && (
-                  <p style={{ color: '#AA0924', fontSize: '13px', marginBottom: '8px' }}>
-                    {submitError}
-                  </p>
-                )}
-                <button
-                  type="submit"
-                  form="foi-form"
-                  disabled={isSubmitting}
-                  className="hover:bg-[#880718] transition-colors"
-                  style={{
-                    height: '48px',
-                    padding: '0 36px',
-                    backgroundColor: '#AA0924',
-                    borderRadius: '8px',
-                    border: 'none',
-                    color: '#FFFFFF',
-                    fontWeight: 700,
-                    fontSize: '16px',
-                    fontFamily: F,
-                    cursor: isSubmitting ? 'not-allowed' : 'pointer',
-                    opacity: isSubmitting ? 0.6 : 1,
-                  }}
-                >
-                  {isSubmitting ? 'Submitting...' : 'SUBMIT REQUEST'}
-                </button>
+        {submitError && (
+            <p style={{ color: '#AA0924', fontSize: '13px', marginBottom: '8px' }}>
+              {submitError}
+            </p>
+          )}
+          <button
+            type="submit"
+            form="foi-form"
+            disabled={isSubmitting}
+            className="hover:bg-[#880718] transition-colors"
+            style={{
+              height: '48px',
+              padding: '0 36px',
+              backgroundColor: '#AA0924',
+              borderRadius: '8px',
+              border: 'none',
+              color: '#FFFFFF',
+              fontWeight: 700,
+              fontSize: '16px',
+              fontFamily: F,
+              cursor: isSubmitting ? 'not-allowed' : 'pointer',
+              opacity: isSubmitting ? 0.6 : 1,
+            }}
+          >
+            {isSubmitting ? 'Submitting...' : 'SUBMIT REQUEST'}
+          </button>
         )}
       </div>
     </div>
