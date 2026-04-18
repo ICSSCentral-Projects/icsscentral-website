@@ -743,8 +743,8 @@ function FOIRequestModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => 
         </div>
 
         {/* ── Fixed Footer (80px) ── */}
-        <div className="shrink-0 h-20 px-6 md:px-8 border-t border-[#E0E0E0] flex items-center">
-       {submitError && (
+        <div className="shrink-0 h-20 px-6 md:px-8 border-t border-[#E0E0E0] flex flex-col justify-center">
+          {submitError && (
             <p style={{ color: '#AA0924', fontSize: '13px', marginBottom: '8px' }}>
               {submitError}
             </p>
@@ -770,7 +770,8 @@ function FOIRequestModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => 
           >
             {isSubmitting ? 'Submitting...' : 'SUBMIT REQUEST'}
           </button>
-      </div>
+        </div>
+      </>
     </div>
   );
 }
