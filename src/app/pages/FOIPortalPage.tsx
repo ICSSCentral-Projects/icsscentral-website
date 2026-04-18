@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { submitFOIRequest, getFOIRequests, type FOIRequestItem } from '../../lib/strapiApi';
 import { Search, Plus, Info, Check, Clock, FileText, Eye, ArrowLeft, X, ChevronDown, Send, Zap, CheckCircle } from 'lucide-react';
 import InnerHeroBanner from '../components/InnerHeroBanner';
 
@@ -20,77 +21,6 @@ interface FOIRequest {
   status: 'successful' | 'pending' | 'denied';
   denialReason?: string;
 }
-
-const mockRequests: FOIRequest[] = [
-  {
-    id: '1',
-    refId: '#FOI-26-001',
-    title: 'GA Minutes Sept 2025',
-    publishedDate: 'March 10, 2026',
-    requestedBy: 'Juan Dela Cruz',
-    affiliation: 'UST Student',
-    purpose: 'Academic Research & Event Planning',
-    trackingNo: 'FOI-2026-0041',
-    status: 'successful',
-  },
-  {
-    id: '2',
-    refId: '#FOI-26-002',
-    title: 'Proposed Budget Draft',
-    publishedDate: 'March 05, 2026',
-    requestedBy: 'Maria Santos',
-    affiliation: 'UST Student',
-    purpose: 'Transparency & Accountability Audit',
-    trackingNo: 'FOI-2026-0038',
-    status: 'pending',
-  },
-  {
-    id: '3',
-    refId: '#FOI-26-003',
-    title: 'CICS Week Liquidation Report',
-    publishedDate: 'February 28, 2026',
-    requestedBy: 'Carlos Reyes',
-    affiliation: 'UST Faculty/Staff',
-    purpose: 'Financial',
-    trackingNo: 'FOI-2026-0035',
-    status: 'successful',
-  },
-  {
-    id: '4',
-    refId: '#FOI-26-004',
-    title: 'Student Organization Accreditation Records',
-    publishedDate: 'February 20, 2026',
-    requestedBy: 'Angela Lim',
-    affiliation: 'Alumni',
-    purpose: 'Organization Compliance Review',
-    trackingNo: 'FOI-2026-0030',
-    status: 'denied',
-    denialReason: 'Denied due to Data Privacy Policy',
-  },
-  {
-    id: '5',
-    refId: '#FOI-26-005',
-    title: 'Room Schedule Request',
-    publishedDate: 'February 15, 2026',
-    requestedBy: 'Patrick Mendoza',
-    affiliation: 'UST Student',
-    purpose: 'Facilities',
-    trackingNo: 'FOI-2026-0027',
-    status: 'pending',
-  },
-  {
-    id: '6',
-    refId: '#FOI-26-006',
-    title: 'Council Meeting Attendance Records',
-    publishedDate: 'February 10, 2026',
-    requestedBy: 'Sofia Garcia',
-    affiliation: 'External (Non-Thomasian)',
-    purpose: 'Academic',
-    trackingNo: 'FOI-2026-0024',
-    status: 'denied',
-    denialReason: 'Restricted document — requires clearance from the Dean\'s Office',
-  },
-];
 
 const tabs: { key: TabKey; label: string }[] = [
   { key: 'all', label: 'ALL REQUESTS' },
@@ -274,14 +204,28 @@ function FOIRequestModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => 
     validateEmail(form.email);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setMobileTouched(true);
     setEmailTouched(true);
     const mobileValid = validateMobile(form.mobile);
     const emailValid = validateEmail(form.email);
     if (!mobileValid || !emailValid) return;
-    setSubmitted(true);
+
+    setIsSubmitting(true);
+    setSubmitError('');
+    try {
+      await submitFOIRequest(form);
+      setSubmitted(true);
+    } catch (err) {
+      console.error('FOI submission failed:', err);
+      setSubmitError('Submission failed. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const validateFile = (file: File): boolean => {
@@ -800,25 +744,28 @@ function FOIRequestModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => 
 
         {/* ── Fixed Footer (80px) ── */}
         <div className="shrink-0 h-20 px-6 md:px-8 border-t border-[#E0E0E0] flex items-center">
-          <button
-            type="submit"
-            form="foi-form"
-            className="hover:bg-[#880718] transition-colors"
-            style={{
-              height: '48px',
-              padding: '0 36px',
-              backgroundColor: '#AA0924',
-              borderRadius: '8px',
-              border: 'none',
-              color: '#FFFFFF',
-              fontWeight: 700,
-              fontSize: '16px',
-              fontFamily: F,
-              cursor: 'pointer',
-            }}
-          >
-            SUBMIT
-          </button>
+         {submitError && (
+                  <p style={{ color: '#AA0924', fontSize: '13px', marginBottom: '8px' }}>
+                    {submitError}
+                  </p>
+                )}
+                <button
+                  type="submit"
+                  form="foi-form"
+                  disabled={isSubmitting}
+                  className="hover:bg-[#880718] transition-colors"
+                  style={{
+                    height: '48px',
+                    padding: '0 36px',
+                    backgroundColor: '#AA0924',
+                    borderRadius: '8px',
+                    border: 'none',
+                    color: '#FFFFFF',
+                    fontWeight: 700,
+                    fontSize: '16px',
+                    fontFamily: F,
+                    cursor: isSubmitting ? 'not-allowed' : 'pointer',
+                    opacity: isSubmitting ? 0.6 : 1,
         </div>
           </>
         )}
@@ -828,14 +775,62 @@ function FOIRequestModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => 
 }
 
 /* ─── Main Page ─── */
+
+
+function useFOIRequests() {
+  const [requests, setRequests] = useState<FOIRequest[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+
+  const load = async () => {
+    setLoading(true);
+    setError('');
+    try {
+      const data = await getFOIRequests();
+      setRequests(
+        data.map((item: FOIRequestItem) => ({
+          id: String(item.id),
+          refId: item.refId,
+          title: item.foi_title,
+          publishedDate: item.publishedDate
+            ? new Date(item.publishedDate).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })
+            : '',
+          requestedBy: item.requestedBy,
+          affiliation: item.foi_affiliation,
+          purpose: item.foi_purpose,
+          trackingNo: item.trackingNo,
+          status: item.foi_status,
+          denialReason: item.denialReason,
+        }))
+      );
+    } catch (err) {
+      console.error('Failed to load FOI requests:', err);
+      setError('Unable to load requests. Please try again later.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => { load(); }, []);
+
+  return { requests, loading, error, reload: load };
+}
+
+
+
 export default function FOIPortalPage() {
   const [activeTab, setActiveTab] = useState<TabKey>('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [viewMode, setViewMode] = useState<ViewMode>('list');
   const [selectedRequest, setSelectedRequest] = useState<FOIRequest | null>(null);
+  const { requests, loading, error } = useFOIRequests();
   const [modalOpen, setModalOpen] = useState(false);
 
-  const filteredRequests = mockRequests.filter((req) => {
+  const filteredRequests = requests.filter((req) => {
     const matchesTab = activeTab === 'all' || req.status === activeTab;
     const matchesSearch =
       req.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
