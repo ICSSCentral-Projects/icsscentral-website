@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { submitInquiry } from '../../lib/strapiApi';
 import { Link } from 'react-router';
 import { MapPin, Mail, Clock, Send, Facebook, Instagram, MessageCircle } from 'lucide-react';
 import InnerHeroBanner from '../components/InnerHeroBanner';
