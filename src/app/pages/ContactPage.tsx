@@ -28,6 +28,8 @@ export default function ContactPage() {
   const [isInquiryCategoryOpen, setIsInquiryCategoryOpen] = useState(false);
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   useEffect(() => {
     if (isPopupOpen) {
@@ -44,24 +46,34 @@ export default function ContactPage() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Validate required fields
+
     if (!formData.inquiryCategory || !formData.message.trim()) {
       alert('Please fill in all required fields (marked with *).');
       return;
     }
-    
-    setIsPopupOpen(true);
-    setFormData({
-      category: '',
-      firstName: '',
-      lastName: '',
-      email: '',
-      inquiryCategory: '',
-      message: ''
-    });
+
+    setIsSubmitting(true);
+    setSubmitError('');
+
+    try {
+      await submitInquiry(formData);
+      setIsPopupOpen(true);
+      setFormData({
+        category: '',
+        firstName: '',
+        lastName: '',
+        email: '',
+        inquiryCategory: '',
+        message: '',
+      });
+    } catch (err) {
+      console.error('Failed to submit inquiry:', err);
+      setSubmitError('Something went wrong. Please try again or email us directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const categoryOptions = [
@@ -344,12 +356,16 @@ export default function ContactPage() {
                 </div>
 
                 {/* Submit Button - Fixed at bottom with 24px gap */}
+                {submitError && (
+                  <p className="text-[#AA0924] text-sm mt-2">{submitError}</p>
+                )}
                 <button
                   type="submit"
-                  className="w-full bg-[#AA0924] text-white rounded-lg hover:bg-[#880718] transition-colors h-[48px] flex items-center justify-center mt-6"
+                  disabled={isSubmitting}
+                  className="w-full bg-[#AA0924] text-white rounded-lg hover:bg-[#880718] transition-colors h-[48px] flex items-center justify-center mt-6 disabled:opacity-60 disabled:cursor-not-allowed"
                   style={{ fontWeight: 700, fontSize: '16px' }}
                 >
-                  Submit
+                  {isSubmitting ? 'Submitting...' : 'Submit'}
                 </button>
               </form>
             </div>
