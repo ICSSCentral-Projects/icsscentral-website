@@ -766,7 +766,10 @@ function FOIRequestModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => 
                     fontFamily: F,
                     cursor: isSubmitting ? 'not-allowed' : 'pointer',
                     opacity: isSubmitting ? 0.6 : 1,
-        </div>
+                  }}
+                >
+                  {isSubmitting ? 'Submitting...' : 'SUBMIT REQUEST'}
+                </button>
           </>
         )}
       </div>
