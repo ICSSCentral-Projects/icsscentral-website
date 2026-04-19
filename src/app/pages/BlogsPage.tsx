@@ -47,7 +47,13 @@ const blogPosts = [
 const categories = ["All", "Student Spotlight", "Community Development", "Opportunities"];
 
 export default function BlogsPage() {
- const [articles, setArticles] = useState<StrapiArticle[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [visibleVideos, setVisibleVideos] = useState(3);
+  const [currentPage, setCurrentPage] = useState(1);
+  const postsPerPage = 6;
+
+  const [articles, setArticles] = useState<StrapiArticle[]>([]);
   const [blogsLoading, setBlogsLoading] = useState(true);
   const [blogsError, setBlogsError] = useState('');
 
