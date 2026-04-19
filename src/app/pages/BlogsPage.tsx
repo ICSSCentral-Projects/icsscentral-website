@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router';
 import { Calendar, User, Tag, ArrowRight, Search, Play, Pin } from 'lucide-react';
 import InnerHeroBanner from '../components/InnerHeroBanner';
@@ -10,6 +10,7 @@ import raceAgainstSuicide from "../../assets/race-against-suicide.png";
 import cics1 from "../../assets/cics-1.png";
 import cics2 from "../../assets/cics-2.png";
 import cics3 from "../../assets/cics-3.png";
+import { getArticles, type StrapiArticle } from '../../lib/strapiApi';
 
 const F = "'Poppins', sans-serif";
 
@@ -46,16 +47,27 @@ const blogPosts = [
 const categories = ["All", "Student Spotlight", "Community Development", "Opportunities"];
 
 export default function BlogsPage() {
-  const [selectedCategory, setSelectedCategory] = useState("All");
-  const [searchQuery, setSearchQuery] = useState("");
-  const [visibleVideos, setVisibleVideos] = useState(3);
-  const [currentPage, setCurrentPage] = useState(1);
-  const postsPerPage = 6;
+ const [articles, setArticles] = useState<StrapiArticle[]>([]);
+  const [blogsLoading, setBlogsLoading] = useState(true);
+  const [blogsError, setBlogsError] = useState('');
 
-  const filteredPosts = blogPosts.filter(post => {
-    const matchesCategory = selectedCategory === "All" || post.category === selectedCategory;
-    const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         post.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
+  useEffect(() => {
+    (async () => {
+      try {
+        const data = await getArticles();
+        setArticles(data);
+      } catch (err) {
+        console.error('Failed to load articles:', err);
+        setBlogsError('Unable to load blog posts. Please try again later.');
+      } finally {
+        setBlogsLoading(false);
+      }
+    })();
+  }, []);
+
+ const filteredPosts = articles.filter(post => {
+    const matchesCategory = selectedCategory === "All" || post.post_category === selectedCategory;
+    const matchesSearch = post.post_title.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   });
 
