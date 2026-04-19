@@ -178,6 +178,7 @@ export interface FOIRequestItem {
   trackingNo: string;
   foi_status: 'successful' | 'pending' | 'denied';
   denialReason?: string;
+  statusLog?: Array<{ date: string; text: string }>;
 }
 
 export async function getFOIRequests(): Promise<FOIRequestItem[]> {
