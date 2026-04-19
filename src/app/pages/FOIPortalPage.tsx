@@ -20,6 +20,7 @@ interface FOIRequest {
   trackingNo: string;
   status: 'successful' | 'pending' | 'denied';
   denialReason?: string;
+  statusLog?: Array<{ date: string; text: string }>;
 }
 
 const tabs: { key: TabKey; label: string }[] = [
@@ -65,21 +66,14 @@ const getTrackerSteps = (status: string) => {
 };
 
 const getStatusLog = (req: FOIRequest) => {
-  const logs = [
-    { date: 'March 05, 2026 — 9:14 AM', text: `Request submitted. Reference number ${req.refId} assigned.` },
-    { date: 'March 06, 2026 — 10:30 AM', text: 'Request received and forwarded to the CICS Finance Committee for review.' },
-    { date: 'March 08, 2026 — 2:45 PM', text: 'Documentation verified. Request is now being processed by the Student Council Treasurer.' },
+  // Use real status log from Strapi if available
+  if (req.statusLog && req.statusLog.length > 0) {
+    return req.statusLog;
+  }
+  // Fallback if no log entries yet
+  return [
+    { date: req.publishedDate, text: `Request submitted. Reference number ${req.refId} assigned.` },
   ];
-  if (req.status === 'successful') {
-    logs.push(
-      { date: 'March 10, 2026 — 10:00 AM', text: 'Request approved by the CICS Student Council.' },
-      { date: req.publishedDate + ' — 12:00 PM', text: 'Requested document has been released and is now available.' },
-    );
-  }
-  if (req.status === 'denied') {
-    logs.push({ date: 'March 10, 2026 — 10:00 AM', text: `Request denied. ${req.denialReason || 'Please contact the STRAW Desk for more information.'}` });
-  }
-  return logs.reverse();
 };
 
 const affiliationOptions = [
@@ -129,6 +123,7 @@ function useFOIRequests() {
           trackingNo: item.trackingNo,
           status: item.foi_status,
           denialReason: item.denialReason,
+          statusLog: item.statusLog,
         }))
       );
     } catch (err) {
