@@ -1,4 +1,6 @@
 import { Link, useParams } from 'react-router';
+import { useState, useEffect } from 'react';
+import { getArticleById } from '../../lib/strapiApi';
 import { Calendar, User, ArrowLeft, ArrowUp } from 'lucide-react';
 import InnerHeroBanner from '../components/InnerHeroBanner';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
@@ -367,7 +369,26 @@ const blogContent: Record<string, BlogContent> = {
 
 export default function BlogOverviewPage() {
   const { id } = useParams();
-  const blog = id ? blogContent[id] : null;
+  const [blog, setBlog] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!id) { setLoading(false); return; }
+    getArticleById(id).then((data) => {
+      if (data) {
+        setBlog({
+          title: data.post_title,
+          author: data.post_author,
+          date: new Date(data.postDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+          image: data.coverImage?.url ?? '',
+          body: <p className="text-[#333] text-justify" style={{ fontSize: '16px', lineHeight: '1.6' }}>{data.post_content}</p>,
+        });
+      }
+      setLoading(false);
+    });
+  }, [id]);
+
+  if (loading) return <div className="text-center py-20">Loading…</div>;
 
   if (!blog) {
     return (
