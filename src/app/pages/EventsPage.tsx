@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Calendar, MapPin, Clock, ArrowRight, Search } from 'lucide-react';
 import InnerHeroBanner from '../components/InnerHeroBanner';
 import SectionDivider from '../components/SectionDivider';
-import { events } from '../data/events';
+import { getEvents, type StrapiEvent } from '../../lib/strapiApi';
 
 const F = "'Poppins', sans-serif";
 
@@ -14,15 +14,34 @@ export default function EventsPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const eventsPerPage = 6;
 
+  const [events, setEvents] = useState<StrapiEvent[]>([]);
+  const [eventsLoading, setEventsLoading] = useState(true);
+  const [eventsError, setEventsError] = useState('');
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const data = await getEvents();
+        setEvents(data);
+      } catch (err) {
+        console.error('Failed to load events:', err);
+        setEventsError('Unable to load events. Please try again later.');
+      } finally {
+        setEventsLoading(false);
+      }
+    })();
+  }, []);
+
   const filteredEvents = events.filter(event => {
     const matchesCategory = selectedCategory === "All" || event.category === selectedCategory;
-    const matchesSearch = event.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         event.description.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesSearch = event.title.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   });
 
   // Sort by date ascending (closest upcoming first)
-  const sortedEvents = [...filteredEvents].sort((a, b) => a.sortDate.localeCompare(b.sortDate));
+  const sortedEvents = [...filteredEvents].sort((a, b) =>
+    new Date(a.date).getTime() - new Date(b.date).getTime()
+  );
   const limitedEvents = sortedEvents.slice(0, 9);
   const totalPages = Math.max(1, Math.ceil(limitedEvents.length / eventsPerPage));
   const safeCurrentPage = Math.min(currentPage, totalPages);
@@ -146,6 +165,13 @@ export default function EventsPage() {
             </div>
           </section>
         )}
+
+        {eventsLoading && (
+                <div className="text-center py-16 text-[#555555]">Loading events…</div>
+              )}
+              {eventsError && (
+                <div className="text-center py-16 text-[#AA0924]">{eventsError}</div>
+              )}
 
         {/* EMPTY STATE — no events for this category */}
         {!featuredEvent && (
