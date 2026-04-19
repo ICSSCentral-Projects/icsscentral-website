@@ -208,15 +208,7 @@ export default function BlogsPage() {
                   >
                   {/* Image with Pinned Badge */}
                   <div className="h-52 overflow-hidden relative flex-shrink-0">
-                    {post.pinned && (
-                      <div className="absolute top-3 left-3 z-10">
-                        <span className="bg-[#AA0924] text-white px-3 py-1.5 rounded-md flex items-center gap-1.5" style={{ fontFamily: F, fontWeight: 600, fontSize: '12px' }}>
-                          <Pin className="w-3.5 h-3.5" fill="white" />
-                          Pinned
-                        </span>
-                      </div>
-                    )}
-                    <img src={post.image} alt={post.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                    <img src={post.coverImage?.url ?? ''} alt={post.post_title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
                   </div>
 
                   {/* Card Content */}
@@ -224,34 +216,34 @@ export default function BlogsPage() {
                     {/* Category Tag */}
                     <div className="flex items-center gap-2 mb-3">
                       <Tag className="w-3.5 h-3.5 text-[#AA0924]" />
-                      <span className="text-[#AA0924]" style={{ fontFamily: F, fontWeight: 600, fontSize: '13px' }}>{post.category}</span>
+                      <span className="text-[#AA0924]" style={{ fontFamily: F, fontWeight: 600, fontSize: '13px' }}>{post.post_category}</span>
                     </div>
 
                     {/* Title */}
                     <h3 className="text-[#1A1A1A] mb-3 line-clamp-2" style={{ fontFamily: F, fontWeight: 700, fontSize: '24px', lineHeight: '1.4' }}>
-                      {post.title}
+                      {post.post_title}
                     </h3>
 
                     {/* Author and Date */}
                     <div className="flex items-center gap-4 mb-3 text-[#777777]" style={{ fontFamily: F, fontSize: '14px', fontWeight: 500 }}>
                       <div className="flex items-center gap-1.5">
                         <User className="w-3 h-3" />
-                        <span>{post.author}</span>
+                        <span>{post.post_author}</span>
                       </div>
                       <div className="flex items-center gap-1.5">
                         <Calendar className="w-3 h-3" />
-                        <span>{post.date}</span>
+                        <span>{new Date(post.postDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
                       </div>
                     </div>
 
                     {/* Summary Snippet */}
                     <p className="text-[#555555] mb-4 line-clamp-3 flex-1" style={{ fontFamily: F, fontSize: '16px', lineHeight: '24px', fontWeight: 400 }}>
-                      {post.excerpt}
+                      {post.post_content?.slice(0, 160)}...
                     </p>
 
                     {/* Read More Button - Aligned at Bottom */}
                     <Link 
-                      to={post.link}
+                      to=to={`/blogs/${post.id}`}
                       className="w-full bg-[#AA0924] text-white py-2.5 rounded hover:bg-[#880718] transition-colors flex items-center justify-center gap-2 mt-auto" 
                       style={{ fontFamily: F, fontWeight: 700, fontSize: '16px', textDecoration: 'none' }}
                     >
