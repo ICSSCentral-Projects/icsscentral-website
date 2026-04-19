@@ -243,7 +243,7 @@ export default function BlogsPage() {
 
                     {/* Read More Button - Aligned at Bottom */}
                     <Link 
-                      to=to={`/blogs/${post.id}`}
+                      to={`/blogs/${post.id}`}
                       className="w-full bg-[#AA0924] text-white py-2.5 rounded hover:bg-[#880718] transition-colors flex items-center justify-center gap-2 mt-auto" 
                       style={{ fontFamily: F, fontWeight: 700, fontSize: '16px', textDecoration: 'none' }}
                     >
