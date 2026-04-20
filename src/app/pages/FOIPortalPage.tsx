@@ -20,7 +20,7 @@ interface FOIRequest {
   trackingNo: string;
   status: 'successful' | 'pending' | 'denied';
   denialReason?: string;
-  statusLog?: Array<{ date: string; text: string }>;
+  statusLog?: Array<{ text: string; timestamp: string }>;
 }
 
 const tabs: { key: TabKey; label: string }[] = [
@@ -66,11 +66,18 @@ const getTrackerSteps = (status: string) => {
 };
 
 const getStatusLog = (req: FOIRequest) => {
-  // Use real status log from Strapi if available
   if (req.statusLog && req.statusLog.length > 0) {
-    return req.statusLog;
+    return req.statusLog.map((entry) => ({
+      date: new Date(entry.timestamp).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+      }),
+      text: entry.text,
+    }));
   }
-  // Fallback if no log entries yet
   return [
     { date: req.publishedDate, text: `Request submitted. Reference number ${req.refId} assigned.` },
   ];
