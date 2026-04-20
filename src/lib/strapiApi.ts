@@ -178,7 +178,7 @@ export interface FOIRequestItem {
   trackingNo: string;
   foi_status: 'successful' | 'pending' | 'denied';
   denialReason?: string;
-  statusLog?: Array<{ date: string; text: string }>;
+  statusLog?: Array<{ text: string; timestamp: string }>;
 }
 
 export async function getFOIRequests(): Promise<FOIRequestItem[]> {
@@ -198,7 +198,7 @@ export async function getFOIRequests(): Promise<FOIRequestItem[]> {
   };
 
   const res = await strapiRequest<StrapiResponse>(
-    '/foi-requests?sort=publishedDate:desc&pagination[pageSize]=50'
+    '/foi-requests?sort=publishedDate:desc&pagination[pageSize]=50&populate=statusLog'
   );
 
   return res.data.map((item) => ({
