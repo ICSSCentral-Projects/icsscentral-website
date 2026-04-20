@@ -165,7 +165,7 @@ export async function submitFOIRequest(data: SubmitFOIPayload): Promise<void> {
     payload.supportingDoc = uploadedFileId;
   }
 
-  await strapiRequest('/foi-requests', {
+  await strapiRequest('/quests', {
     method: 'POST',
     body: JSON.stringify({ data: payload }),
   });
@@ -220,7 +220,8 @@ export async function getFOIRequests(): Promise<FOIRequestItem[]> {
     trackingNo: item.trackingNo ?? '',
     foi_status: item.foi_status,
     denialReason: item.denialReason,
-  }));
+    statusLog: item.statusLog,
+    }));
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
