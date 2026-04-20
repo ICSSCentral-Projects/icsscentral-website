@@ -143,14 +143,22 @@ export async function submitFOIRequest(data: SubmitFOIPayload): Promise<void> {
   }
 
   // Step 2 – create the FOI request entry
+ // Generate reference ID based on current year and timestamp
+  const now = new Date();
+  const year = now.getFullYear().toString().slice(-2);
+  const timestamp = now.getTime().toString().slice(-4);
+  const refId = `#FOI-${year}-${timestamp}`;
+
   const payload: Record<string, unknown> = {
     foi_title: data.document,
+    refId: refId,
+    trackingNo: `FOI-20${year}-${timestamp}`,
     requestedBy: `${data.firstName} ${data.lastName}`.trim(),
     foi_affiliation: data.affiliation,
     foi_category: data.category,
     foi_purpose: data.reason,
     foi_status: 'pending',
-    publishedDate: new Date().toISOString().split('T')[0], // YYYY-MM-DD
+    publishedDate: new Date().toISOString().split('T')[0],
   };
 
   if (uploadedFileId) {
