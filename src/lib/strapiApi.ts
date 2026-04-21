@@ -306,7 +306,7 @@ export async function getArticles(): Promise<StrapiArticle[]> {
   );
 
   return res.data.map((item: any) => ({
-    id: item.id,
+    id: item.documentId ?? item.id,
     post_title: item.attributes?.post_title ?? item.post_title,
     post_author: item.attributes?.post_author ?? item.post_author,
     postDate: item.attributes?.postDate ?? item.postDate,
