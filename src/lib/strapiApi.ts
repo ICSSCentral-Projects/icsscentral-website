@@ -305,16 +305,21 @@ export async function getArticles(): Promise<StrapiArticle[]> {
     '/articles?sort=postDate:desc&populate=coverImage&pagination[pageSize]=50'
   );
 
-  return res.data.map((item) => ({
+  return res.data.map((item: any) => ({
     id: item.id,
-    post_title: item.post_title,
-    post_author: item.post_author,
-    postDate: item.postDate,
-    post_category: item.post_category,
-    post_content: item.post_content,
-    coverImage: item.coverImage
-      ? { ...item.coverImage, url: getStrapiMediaUrl(item.coverImage.url) ?? item.coverImage.url }
-      : undefined,
+    post_title: item.attributes?.post_title ?? item.post_title,
+    post_author: item.attributes?.post_author ?? item.post_author,
+    postDate: item.attributes?.postDate ?? item.postDate,
+    post_category: item.attributes?.post_category ?? item.post_category,
+    post_content: item.attributes?.post_content ?? item.post_content,
+    coverImage: item.attributes?.coverImage?.data?.attributes
+      ? {
+          url: getStrapiMediaUrl(item.attributes.coverImage.data.attributes.url) ?? '',
+          alternativeText: item.attributes.coverImage.data.attributes.alternativeText,
+        }
+      : item.coverImage
+        ? { ...item.coverImage, url: getStrapiMediaUrl(item.coverImage.url) ?? item.coverImage.url }
+        : undefined,
   }));
 }
 
