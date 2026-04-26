@@ -166,7 +166,7 @@ export async function submitFOIRequest(data: SubmitFOIPayload): Promise<void> {
     payload.supportingDoc = uploadedFileId;
   }
 
-  await strapiRequest('/quests', {
+  await strapiRequest('/foi-requests', {
     method: 'POST',
     body: JSON.stringify({ data: payload }),
   });
