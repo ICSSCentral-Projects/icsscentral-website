@@ -149,11 +149,12 @@ export async function submitFOIRequest(data: SubmitFOIPayload): Promise<void> {
   const timestamp = now.getTime().toString().slice(-4);
   const refId = `#FOI-${year}-${timestamp}`;
 
-  const payload: Record<string, unknown> = {
+ const payload: Record<string, unknown> = {
     foi_title: data.document,
     refId: refId,
     trackingNo: `FOI-20${year}-${timestamp}`,
     requestedBy: `${data.firstName} ${data.lastName}`.trim(),
+    foi_email: data.email,
     foi_affiliation: data.affiliation,
     foi_category: data.category,
     foi_purpose: data.reason,
