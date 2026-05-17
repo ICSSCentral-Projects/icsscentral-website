@@ -158,7 +158,7 @@ export async function submitFOIRequest(data: SubmitFOIPayload): Promise<void> {
     foi_affiliation: data.affiliation,
     foi_category: data.category,
     foi_purpose: data.reason,
-    foi_status: 'pending',
+    request_status: 'pending',
     publishedDate: new Date().toISOString().split('T')[0],
   };
 
@@ -185,9 +185,10 @@ export interface FOIRequestItem {
   foi_affiliation: string;
   foi_purpose: string;
   trackingNo: string;
-  foi_status: 'successful' | 'pending' | 'denied';
+  request_status: 'pending' | 'processing' | 'successful' | 'unsuccessful';
   denialReason?: string;
   statusLog?: Array<{ text: string; timestamp: string }>;
+  supportingDoc?: { url: string; name: string };
 }
 
 export async function getFOIRequests(): Promise<FOIRequestItem[]> {
@@ -201,13 +202,17 @@ export async function getFOIRequests(): Promise<FOIRequestItem[]> {
       foi_affiliation: string;
       foi_purpose: string;
       trackingNo: string;
-      foi_status: 'successful' | 'pending' | 'denied';
+      request_status: 'pending' | 'processing' | 'successful' | 'unsuccessful';
       denialReason?: string;
+      supportingDoc?: {
+        url: string;
+        name: string;
+      };
     }>;
   };
 
   const res = await strapiRequest<StrapiResponse>(
-    '/foi-requests?sort=publishedDate:desc&pagination[pageSize]=50&populate=statusLog'
+    '/foi-requests?sort=publishedDate:desc&pagination[pageSize]=50&populate=*'
   );
 
   return res.data.map((item) => ({
@@ -219,10 +224,14 @@ export async function getFOIRequests(): Promise<FOIRequestItem[]> {
     foi_affiliation: item.foi_affiliation,
     foi_purpose: item.foi_purpose,
     trackingNo: item.trackingNo ?? '',
-    foi_status: item.foi_status,
+    request_status: item.request_status,
     denialReason: item.denialReason,
     statusLog: item.statusLog,
-    }));
+    supportingDoc: item.supportingDoc ? {
+      url: getStrapiMediaUrl(item.supportingDoc.url) ?? item.supportingDoc.url,
+      name: item.supportingDoc.name
+    } : undefined,
+  }));
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -234,6 +243,8 @@ export interface StrapiEvent {
   title: string;
   slug: string;
   date: string;        // ISO datetime string
+  time?: string;
+  location?: string;
   category: string;
   externalLink?: string;
   image?: {
@@ -249,6 +260,8 @@ export async function getEvents(): Promise<StrapiEvent[]> {
       title: string;
       slug: string;
       date: string;
+      time?: string;
+      location?: string;
       category: string;
       externalLink?: string;
       image?: { url: string; alternativeText?: string };
@@ -264,6 +277,8 @@ export async function getEvents(): Promise<StrapiEvent[]> {
     title: item.title,
     slug: item.slug,
     date: item.date,
+    time: item.time,
+    location: item.location,
     category: item.category,
     externalLink: item.externalLink,
     image: item.image

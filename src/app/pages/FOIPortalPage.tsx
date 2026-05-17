@@ -6,7 +6,7 @@ import InnerHeroBanner from '../components/InnerHeroBanner';
 /* FOI Portal Page — ICSSC */
 const F = "'Poppins', sans-serif";
 
-type TabKey = 'all' | 'successful' | 'pending' | 'denied';
+type TabKey = 'all' | 'successful' | 'processing' | 'unsuccessful';
 type ViewMode = 'list' | 'detail';
 
 interface FOIRequest {
@@ -18,22 +18,25 @@ interface FOIRequest {
   affiliation: string;
   purpose: string;
   trackingNo: string;
-  status: 'successful' | 'pending' | 'denied';
+  status: 'pending' | 'processing' | 'successful' | 'unsuccessful';
   denialReason?: string;
   statusLog?: Array<{ text: string; timestamp: string }>;
+  supportingDocUrl?: string;
+  supportingDocName?: string;
 }
 
 const tabs: { key: TabKey; label: string }[] = [
   { key: 'all', label: 'ALL REQUESTS' },
   { key: 'successful', label: 'SUCCESSFUL REQUESTS' },
-  { key: 'pending', label: 'PROCESSING REQUESTS' },
-  { key: 'denied', label: 'UNSUCCESSFUL REQUESTS' },
+  { key: 'processing', label: 'PROCESSING REQUESTS' },
+  { key: 'unsuccessful', label: 'UNSUCCESSFUL REQUESTS' },
 ];
 
 const statusColors: Record<string, { bg: string; text: string; label: string }> = {
   successful: { bg: '#ECFDF5', text: '#065F46', label: 'Successful' },
-  pending: { bg: '#FFF8E1', text: '#92400E', label: 'Pending' },
-  denied: { bg: '#FEF2F2', text: '#991B1B', label: 'Denied' },
+  processing: { bg: '#FFF8E1', text: '#92400E', label: 'Processing' },
+  pending: { bg: '#F3F4F6', text: '#4B5563', label: 'Pending' },
+  unsuccessful: { bg: '#FEF2F2', text: '#991B1B', label: 'Unsuccessful' },
 };
 
 const getTrackerSteps = (status: string) => {
@@ -46,7 +49,7 @@ const getTrackerSteps = (status: string) => {
         { label: 'Approved', completed: true },
         { label: 'Released', completed: true },
       ];
-    case 'denied':
+    case 'unsuccessful':
       return [
         { label: 'Submitted', completed: true },
         { label: 'Under Review', completed: true },
@@ -54,11 +57,20 @@ const getTrackerSteps = (status: string) => {
         { label: 'Approved', completed: false },
         { label: 'Released', completed: false },
       ];
-    default:
+    case 'processing':
       return [
         { label: 'Submitted', completed: true },
         { label: 'Under Review', completed: true },
         { label: 'Processing', completed: true },
+        { label: 'Approved', completed: false },
+        { label: 'Released', completed: false },
+      ];
+    case 'pending':
+    default:
+      return [
+        { label: 'Submitted', completed: true },
+        { label: 'Under Review', completed: true },
+        { label: 'Processing', completed: false },
         { label: 'Approved', completed: false },
         { label: 'Released', completed: false },
       ];
@@ -128,9 +140,11 @@ function useFOIRequests() {
           affiliation: item.foi_affiliation,
           purpose: item.foi_purpose,
           trackingNo: item.trackingNo,
-          status: item.foi_status,
+          status: item.request_status,
           denialReason: item.denialReason,
           statusLog: item.statusLog,
+          supportingDocUrl: item.supportingDoc?.url,
+          supportingDocName: item.supportingDoc?.name,
         }))
       );
     } catch (err) {
@@ -495,7 +509,9 @@ export default function FOIPortalPage() {
   const { requests, loading, error } = useFOIRequests();
 
   const filteredRequests = requests.filter((req) => {
-    const matchesTab = activeTab === 'all' || req.status === activeTab;
+    const matchesTab = activeTab === 'all' || 
+      (activeTab === 'processing' && (req.status === 'processing' || req.status === 'pending')) ||
+      req.status === activeTab;
     const matchesSearch =
       req.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       req.trackingNo.toLowerCase().includes(searchQuery.toLowerCase());
@@ -579,7 +595,7 @@ export default function FOIPortalPage() {
                           <p style={{ fontSize: '14px', fontFamily: F, fontWeight: 400, color: '#666666', margin: 0, lineHeight: '1.5', marginBottom: '4px' }}>Requested by: <span style={{ color: '#AA0924' }}>{req.requestedBy}</span></p>
                           <p style={{ fontSize: '14px', fontFamily: F, fontWeight: 400, color: '#666666', margin: 0, lineHeight: '1.5', marginBottom: '4px' }}>Affiliation: <span style={{ color: '#AA0924' }}>{req.affiliation}</span></p>
                           <p style={{ fontSize: '14px', fontFamily: F, fontWeight: 400, color: '#666666', margin: 0, lineHeight: '1.5' }}>Category: <span style={{ color: '#AA0924' }}>{req.purpose}</span></p>
-                          {req.status === 'denied' && req.denialReason && (
+                          {req.status === 'unsuccessful' && req.denialReason && (
                             <p style={{ fontSize: '14px', fontFamily: F, fontWeight: 400, color: '#666666', margin: 0, lineHeight: '1.5', marginTop: '4px' }}>Reason: <span style={{ color: '#AA0924' }}>{req.denialReason}</span></p>
                           )}
                           <div className="flex justify-end mt-6">
@@ -618,18 +634,19 @@ export default function FOIPortalPage() {
                 <p style={{ fontSize: '14px', fontFamily: F, fontWeight: 400, color: '#666666', margin: 0, lineHeight: '1.7' }}>Requested by: <span style={{ color: '#AA0924' }}>{selectedRequest.requestedBy}</span></p>
                 <p style={{ fontSize: '14px', fontFamily: F, fontWeight: 400, color: '#666666', margin: 0, lineHeight: '1.7' }}>Affiliation: <span style={{ color: '#AA0924' }}>{selectedRequest.affiliation}</span></p>
                 <p style={{ fontSize: '14px', fontFamily: F, fontWeight: 400, color: '#666666', margin: 0, lineHeight: '1.7' }}>Category: <span style={{ color: '#AA0924' }}>{selectedRequest.purpose}</span></p>
-                {selectedRequest.status === 'denied' && selectedRequest.denialReason && (
+                {selectedRequest.status === 'unsuccessful' && selectedRequest.denialReason && (
                   <p style={{ fontSize: '14px', fontFamily: F, fontWeight: 400, color: '#666666', margin: 0, lineHeight: '1.7' }}>Reason: <span style={{ color: '#AA0924' }}>{selectedRequest.denialReason}</span></p>
                 )}
               </div>
 
               {(() => {
                 const sc = statusColors[selectedRequest.status];
-                const borderColor = selectedRequest.status === 'successful' ? '#A7F3D0' : selectedRequest.status === 'denied' ? '#FECACA' : '#FDE68A';
+                const borderColor = selectedRequest.status === 'successful' ? '#A7F3D0' : selectedRequest.status === 'unsuccessful' ? '#FECACA' : '#FDE68A';
                 const messages: Record<string, string> = {
                   successful: 'Your request has been approved and the requested information has been released.',
-                  pending: 'Your request is currently being processed. The CICS Finance Committee is reviewing the required documentation.',
-                  denied: selectedRequest.denialReason || 'Your request could not be processed. Please contact the STRAW Desk for more information.',
+                  processing: 'Your request is currently being processed. The CICS Finance Committee is reviewing the required documentation.',
+                  pending: 'Your request has been submitted and is awaiting review.',
+                  unsuccessful: selectedRequest.denialReason || 'Your request could not be processed. Please contact the STRAW Desk for more information.',
                 };
                 return (
                   <div className="flex items-center gap-3" style={{ backgroundColor: sc.bg, border: `1px solid ${borderColor}`, borderRadius: '8px', padding: '16px 20px', marginBottom: '40px' }}>
@@ -689,6 +706,23 @@ export default function FOIPortalPage() {
                   })}
                 </div>
               </div>
+
+              {selectedRequest.supportingDocUrl && (
+                <div className="bg-white border border-[#E0E0E0] hover:border-[#AA0924] transition-all shadow-sm hover:shadow-md mt-10" style={{ borderRadius: '8px', padding: '32px' }}>
+                  <h3 style={{ fontWeight: 700, fontSize: '18px', color: '#000000', marginBottom: '16px', fontFamily: F, margin: '0 0 16px 0' }}>Attached Document</h3>
+                  <div className="flex items-center gap-3">
+                    <FileText className="w-6 h-6 text-[#AA0924]" />
+                    <a 
+                      href={selectedRequest.supportingDocUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      style={{ fontSize: '15px', color: '#000000', textDecoration: 'underline', fontFamily: F, fontWeight: 500 }}
+                    >
+                      {selectedRequest.supportingDocName || 'View Document'}
+                    </a>
+                  </div>
+                </div>
+              )}
             </div>
           </section>
         </>

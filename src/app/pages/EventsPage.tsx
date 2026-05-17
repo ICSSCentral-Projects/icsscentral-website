@@ -8,6 +8,17 @@ const F = "'Poppins', sans-serif";
 
 const categories = ["All", "Academic", "Sports", "Career", "Community", "Celebration"];
 
+const formatDate = (dateStr?: string) => {
+  if (!dateStr) return 'TBA';
+  const d = new Date(dateStr);
+  if (isNaN(d.getTime())) return dateStr;
+  return d.toLocaleDateString('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric'
+  });
+};
+
 export default function EventsPage() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
@@ -117,7 +128,7 @@ export default function EventsPage() {
               <div className="grid grid-cols-1 md:grid-cols-[60%_40%]">
                 {/* Image - 100% on mobile, 60% on desktop */}
                 <div className="h-[300px] md:h-[500px]">
-                  <img src={featuredEvent.image} alt={featuredEvent.title} className="w-full h-full object-cover" />
+                  <img src={featuredEvent.image?.url} alt={featuredEvent.title} className="w-full h-full object-cover" />
                 </div>
 
                 {/* Content - 40% */}
@@ -141,25 +152,28 @@ export default function EventsPage() {
                   <div className="space-y-3 mb-6">
                     <div className="flex items-center gap-3 text-[#777777]" style={{ fontSize: '14px', fontWeight: 500 }}>
                       <Calendar className="w-5 h-5 text-[#AA0924]" />
-                      <span>{featuredEvent.date}</span>
+                      <span>{formatDate(featuredEvent.date)}</span>
                     </div>
                     <div className="flex items-center gap-3 text-[#777777]" style={{ fontSize: '14px', fontWeight: 500 }}>
                       <Clock className="w-5 h-5 text-[#AA0924]" />
-                      <span>{featuredEvent.time}</span>
+                      <span>{featuredEvent.time || 'TBA'}</span>
                     </div>
                     <div className="flex items-center gap-3 text-[#777777]" style={{ fontSize: '14px', fontWeight: 500 }}>
                       <MapPin className="w-5 h-5 text-[#AA0924]" />
-                      <span>{featuredEvent.location}</span>
+                      <span>{featuredEvent.location || 'TBA'}</span>
                     </div>
                   </div>
 
                   {/* Button */}
-                  <button 
+                  <a 
+                    href={featuredEvent.externalLink || '#'}
+                    target={featuredEvent.externalLink ? "_blank" : undefined}
+                    rel={featuredEvent.externalLink ? "noopener noreferrer" : undefined}
                     className="inline-flex items-center justify-center gap-2 bg-[#AA0924] text-white px-7 py-3 rounded hover:bg-[#880718] transition-colors self-start" 
                     style={{ fontWeight: 700, fontSize: '16px' }}
                   >
                     Register Now <ArrowRight className="w-4 h-4" />
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -206,7 +220,7 @@ export default function EventsPage() {
                 >
                   {/* Image on Top */}
                   <div className="h-52 overflow-hidden flex-shrink-0">
-                    <img src={event.image} alt={event.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                    <img src={event.image?.url} alt={event.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
                   </div>
 
                   <div className="p-6 flex flex-col flex-1">
@@ -231,25 +245,28 @@ export default function EventsPage() {
                     <div className="space-y-2 mb-6 flex-1">
                       <div className="flex items-center gap-2 text-[#777777]" style={{ fontSize: '14px', fontWeight: 500 }}>
                         <Calendar className="w-4 h-4 text-[#AA0924]" />
-                        <span>{event.date}</span>
+                        <span>{formatDate(event.date)}</span>
                       </div>
                       <div className="flex items-center gap-2 text-[#777777]" style={{ fontSize: '14px', fontWeight: 500 }}>
                         <Clock className="w-4 h-4 text-[#AA0924]" />
-                        <span>{event.time}</span>
+                        <span>{event.time || 'TBA'}</span>
                       </div>
                       <div className="flex items-center gap-2 text-[#777777]" style={{ fontSize: '14px', fontWeight: 500 }}>
                         <MapPin className="w-4 h-4 text-[#AA0924]" />
-                        <span>{event.location}</span>
+                        <span>{event.location || 'TBA'}</span>
                       </div>
                     </div>
 
                     {/* Register Button */}
-                    <button 
+                    <a 
+                      href={event.externalLink || '#'}
+                      target={event.externalLink ? "_blank" : undefined}
+                      rel={event.externalLink ? "noopener noreferrer" : undefined}
                       className="w-full inline-flex items-center justify-center gap-2 bg-[#AA0924] text-white py-2.5 rounded hover:bg-[#880718] transition-colors mt-auto" 
                       style={{ fontWeight: 700, fontSize: '16px' }}
                     >
                       Register now <ArrowRight className="w-4 h-4" />
-                    </button>
+                    </a>
                   </div>
                 </article>
               ))}
