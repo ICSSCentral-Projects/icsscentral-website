@@ -374,7 +374,7 @@ export default function ContactPage() {
       </section>
 
       {/* FAQs */}
-      <section id="faqs" className="bg-white scroll-mt-[100px]" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
+      <section id="faqs" className="bg-white" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
         <div className="max-w-[800px] mx-auto px-8">
           <div className="text-center mb-10">
             <h2 className="text-[#1A1A1A] mb-2" style={{ fontWeight: 700, fontSize: '32px' }}>FREQUENTLY ASKED QUESTIONS</h2>
@@ -390,12 +390,6 @@ export default function ContactPage() {
                 <p className="mt-3 text-[#555555]" style={{ fontSize: '14px', lineHeight: '22px' }}>{faq.answer}</p>
               </details>
             ))}
-          </div>
-          <div className="mt-10 text-center">
-            <p className="text-[#555555] mb-4" style={{ fontSize: '14px' }}>Didn't find what you're looking for?</p>
-            <Link to="/services/foi-portal" className="inline-block bg-[#AA0924] text-white px-7 py-3 rounded hover:bg-[#880718] transition-colors" style={{ fontWeight: 700, fontSize: '16px' }}>
-              Submit a Detailed Inquiry
-            </Link>
           </div>
         </div>
       </section>
