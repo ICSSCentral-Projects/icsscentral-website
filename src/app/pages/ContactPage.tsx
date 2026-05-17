@@ -382,8 +382,8 @@ export default function ContactPage() {
           </div>
           <div className="space-y-3">
             {faqs.map((faq, index) => (
-              <details key={index} className="bg-[#F5F5F5] open:bg-white rounded-lg border border-[#E0E0E0] hover:border-[#AA0924] open:border-[#AA0924] transition-colors group">
-                <summary className="cursor-pointer list-none flex items-center justify-between text-[#1A1A1A] p-5 focus:outline-none" style={{ fontWeight: 600, fontSize: '16px' }}>
+              <details key={index} className="bg-[#F5F5F5] rounded-lg border border-[#E0E0E0] hover:border-[#AA0924] transition-colors group outline-none focus:outline-none focus-visible:outline-none">
+                <summary className="cursor-pointer select-none list-none flex items-center justify-between text-[#1A1A1A] p-5 outline-none focus:outline-none focus-visible:outline-none" style={{ fontWeight: 600, fontSize: '16px' }}>
                   <span>{faq.question}</span>
                   <span className="text-[#AA0924] group-open:rotate-45 transition-transform" style={{ fontSize: '20px' }}>+</span>
                 </summary>
