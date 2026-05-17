@@ -47,43 +47,43 @@ const organizationsData = [
   {
     name: "Computer Science Society",
     description: "The official organization for Computer Science students that promotes innovation, collaboration, and excellence in computing and software development.",
-    image: "https://images.unsplash.com/photo-1772971919700-d75c91ca7efd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb21wdXRlciUyMHNjaWVuY2UlMjB0ZWNobm9sb2d5JTIwY29kaW5nJTIwc3R1ZGVudHN8ZW58MXx8fHwxNzczNTk4NTYxfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    image: "/organizations/css.jpg",
     link: "https://www.facebook.com/USTCSS"
   },
   {
     name: "Society of Information Technology Enthusiasts",
     description: "A community of IT students passionate about technology, coding, and digital innovation, empowering members through workshops and projects.",
-    image: "https://images.unsplash.com/photo-1702478475268-aa8ef54c084e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbmZvcm1hdGlvbiUyMHRlY2hub2xvZ3klMjBuZXR3b3JrJTIwc2VydmVycyUyMGRhdGF8ZW58MXx8fHwxNzczNTk4NTYyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    image: "/organizations/site.jpg",
     link: "https://www.facebook.com/ustsite"
   },
   {
     name: "Information Systems Society",
     description: "An organization dedicated to developing future IT professionals skilled in both business and technology through seminars and collaborative events.",
-    image: "https://images.unsplash.com/photo-1640696085101-12085802bcf3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXRhJTIwc2NpZW5jZSUyMGFuYWx5dGljcyUyMGdyYXBocyUyMHZpc3VhbGl6YXRpb258ZW58MXx8fHwxNzczNTk4NTYyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    image: "/organizations/iss.jpg",
     link: "https://www.facebook.com/UST.ISSociety"
   },
   {
     name: "CNAG - CICS",
     description: "The CICS Network Administrators’ Quarter unites aspiring network engineers, offering members hands-on experience in systems and network management.",
-    image: "https://images.unsplash.com/photo-1768839721176-2fa91fdce725?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjeWJlcnNlY3VyaXR5JTIwaGFja2luZyUyMGNvZGUlMjBzZWN1cml0eXxlbnwxfHx8fDE3NzM1OTg1NjJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    image: "/organizations/cnag.jpg",
     link: "https://www.facebook.com/cnagics"
   },
   {
     name: "ICS Commission on Election",
     description: "The independent body that ensures fair and transparent student elections within the CICS community, upholding democratic values and integrity.",
-    image: "https://images.unsplash.com/photo-1758598738339-6b1602317e52?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnYW1lJTIwZGV2ZWxvcG1lbnQlMjBnYW1pbmclMjBjb250cm9sbGVyJTIwZGlnaXRhbHxlbnwxfHx8fDE3NzM1OTg1NjN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    image: "/organizations/comelec.jpg",
     link: "https://www.facebook.com/USTICSComelec"
   },
   {
     name: "PAX Romana - ICS Unit",
     description: "A faith-based student organization that fosters spiritual growth, community service, and moral leadership among Thomasians in the CICS.",
-    image: "https://images.unsplash.com/photo-1573164574511-73c773193279?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b21lbiUyMHRlY2hub2xvZ3klMjBjb25mZXJlbmNlJTIwZGl2ZXJzaXR5fGVufDF8fHx8MTc3MzU5ODU2M3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    image: "/organizations/pax.jpg",
     link: "https://www.facebook.com/paxromanaiics"
   },
   {
     name: "AWS Learning Club",
     description: "A student-led group that explores cloud computing and AWS technologies through collaborative learning, certifications, and tech-driven initiatives.",
-    image: "https://images.unsplash.com/photo-1771189956777-575006b6b145?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB0ZWNobm9sb2d5JTIwZGlnaXRhbCUyMGlubm92YXRpb24lMjBhYnN0cmFjdHxlbnwxfHx8fDE3NzM1OTg1Njd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    image: "/organizations/aws.jpg",
     link: "https://www.facebook.com/awsust"
   },
 ];
