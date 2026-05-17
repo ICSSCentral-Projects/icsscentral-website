@@ -130,7 +130,7 @@ export default function HomePage() {
                 className="text-[#1A1A1A] mb-5"
                 style={{ fontFamily: F, fontWeight: 700, fontSize: '32px', lineHeight: '1.2' }}
               >
-                 Our Legacy of Excellence
+                Our Legacy of Excellence
               </h2>
               <p className="text-[#555555] mb-5 text-sm md:text-base leading-relaxed" style={{ fontFamily: F, fontWeight: 400 }}>
                 Established in 2014, the University of Santo Tomas College of Information and Computing Sciences stands as a center of innovation and excellence in technology education. Rooted in UST's rich legacy, CICS unites Computer Science, Information Technology, and Information Systems under one forward-looking college.
@@ -184,7 +184,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-6 md:px-20">
           {/* Header with Red Accent Line */}
           <div className="flex items-center justify-between" style={{ marginBottom: '40px' }}>
-            <h2 className="text-[#1A1A1A]" style={{ fontWeight: 700, fontSize: '32px' }}>Upcoming events</h2>
+            <h2 className="text-[#1A1A1A]" style={{ fontWeight: 700, fontSize: '32px' }}>Upcoming Events</h2>
             <div className="w-20 h-1 bg-[#AA0924]"></div>
           </div>
 

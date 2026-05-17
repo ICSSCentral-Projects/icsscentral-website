@@ -26,7 +26,7 @@ export default function FloatingCard() {
               className="text-white text-left font-extrabold text-base md:text-xl leading-tight"
               style={{ fontFamily: F }}
             >
-              BUILT. INNOVATE. LEAD.
+              INNOVATE. UNITE. EXCEL.
             </h3>
             <p
               className="text-white text-left text-[11px] md:text-base leading-snug font-normal opacity-90"
