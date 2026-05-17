@@ -121,7 +121,7 @@ export default function BlogsPage() {
           </div>
 
           {/* Load More Button */}
-          {visibleVideos < tiktokVideos.length && (
+          {tiktokVideos.length > 3 && visibleVideos < tiktokVideos.length && (
             <div className="flex justify-center">
               <button
                 onClick={() => setVisibleVideos(prev => Math.min(prev + 3, tiktokVideos.length))}
