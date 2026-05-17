@@ -53,7 +53,7 @@ const getTrackerSteps = (status: string) => {
       return [
         { label: 'Submitted', completed: true },
         { label: 'Under Review', completed: true },
-        { label: 'Denied', completed: true },
+        { label: 'Denied', completed: true, isFailure: true },
         { label: 'Approved', completed: false },
         { label: 'Released', completed: false },
       ];
@@ -668,17 +668,18 @@ export default function FOIPortalPage() {
                     if (lastCompletedIndex === 0) return null;
                     const startPct = (1 / (2 * total)) * 100;
                     const endPct = ((2 * lastCompletedIndex + 1) / (2 * total)) * 100;
+                    const isUnsuccessful = selectedRequest.status === 'unsuccessful';
                     return (
                       <>
-                        <div className="absolute hidden md:block" style={{ top: '20px', left: `${startPct}%`, width: `${endPct - startPct}%`, height: '2px', backgroundColor: '#28A745', zIndex: 1 }} />
-                        <div className="absolute left-[20px] top-[20px] w-0.5 bg-[#28A745] md:hidden" style={{ height: `${(lastCompletedIndex / (total - 1)) * 100}%` }} />
+                        <div className="absolute hidden md:block" style={{ top: '20px', left: `${startPct}%`, width: `${endPct - startPct}%`, height: '2px', backgroundColor: isUnsuccessful ? '#DC3545' : '#28A745', zIndex: 1 }} />
+                        <div className="absolute left-[20px] top-[20px] w-0.5 md:hidden" style={{ height: `${(lastCompletedIndex / (total - 1)) * 100}%`, backgroundColor: isUnsuccessful ? '#DC3545' : '#28A745' }} />
                       </>
                     );
                   })()}
-                  {getTrackerSteps(selectedRequest.status).map((step, i) => (
+                  {getTrackerSteps(selectedRequest.status).map((step: any, i) => (
                     <div key={i} className="flex flex-row md:flex-col items-center md:items-center relative z-10 gap-4 md:gap-0" style={{ flex: '1 1 0%' }}>
-                      <div className="flex items-center justify-center shrink-0" style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: step.completed ? '#28A745' : '#E5E7EB' }}>
-                        {step.completed ? <Check className="w-5 h-5 text-white" strokeWidth={3} /> : <Clock className="w-4 h-4" style={{ color: '#9CA3AF' }} />}
+                      <div className="flex items-center justify-center shrink-0" style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: step.isFailure ? '#DC3545' : (step.completed ? '#28A745' : '#E5E7EB') }}>
+                        {step.isFailure ? <X className="w-5 h-5 text-white" strokeWidth={3} /> : (step.completed ? <Check className="w-5 h-5 text-white" strokeWidth={3} /> : <Clock className="w-4 h-4" style={{ color: '#9CA3AF' }} />)}
                       </div>
                       <span className="text-left md:text-center md:mt-3" style={{ fontWeight: 400, fontSize: '13px', color: step.completed ? '#000000' : '#9CA3AF', maxWidth: '120px', fontFamily: F }}>{step.label}</span>
                     </div>
