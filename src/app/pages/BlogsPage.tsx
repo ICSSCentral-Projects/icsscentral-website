@@ -16,15 +16,15 @@ const F = "'Poppins', sans-serif";
 
 // TikTok Video Data
 const tiktokVideos = [
-  { id: 1, thumbnail: "https://images.unsplash.com/photo-1663162550938-60f70fab5d31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdHVkZW50cyUyMGNhbXB1cyUyMGdyb3VwfGVufDF8fHx8MTc3MzU4OTk2Mnww&ixlib=rb-4.1.0&q=80&w=1080", title: "CICS Student Council Day 1" },
-  { id: 2, thumbnail: "https://images.unsplash.com/photo-1591218214141-45545921d2d9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2xsZWdlJTIwZXZlbnQlMjBjZWxlYnJhdGlvbnxlbnwxfHx8fDE3NzM1ODk5NjN8MA&ixlib=rb-4.1.0&q=80&w=1080", title: "Leadership Week Highlights" },
-  { id: 3, thumbnail: "https://images.unsplash.com/photo-1764920265158-500a6e60c487?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwc3R1ZGVudCUyMGFjdGl2aXRpZXN8ZW58MXx8fHwxNzczNTg5OTYzfDA&ixlib=rb-4.1.0&q=80&w=1080", title: "Campus Life" },
-  { id: 4, thumbnail: "https://images.unsplash.com/photo-1769905226788-1bf5ba8f50d6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwY2FtcHVzJTIwc3R1ZGVudHMlMjB3YWxraW5nfGVufDF8fHx8MTc3MzkzNjM2MHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral", title: "Thomasian Tech Talk" },
-  { id: 5, thumbnail: "https://images.unsplash.com/photo-1718327453695-4d32b94c90a4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2xsZWdlJTIwc3R1ZGVudHMlMjBzdHVkeWluZyUyMGxpYnJhcnl8ZW58MXx8fHwxNzczOTE4MTgxfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral", title: "Study Group Sessions" },
-  { id: 6, thumbnail: "https://images.unsplash.com/photo-1768796370407-6d36619e7d6d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdHVkZW50JTIwb3JnYW5pemF0aW9uJTIwbWVldGluZyUyMHRlYW13b3JrfGVufDF8fHx8MTc3Mzk1MTE2OHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral", title: "ICSSC Team Building" },
-  { id: 7, thumbnail: "https://images.unsplash.com/photo-1746122072064-3273a25094c2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2xsZWdlJTIwZ3JhZHVhdGlvbiUyMGNlcmVtb255JTIwY2VsZWJyYXRpb258ZW58MXx8fHwxNzczOTUxMzE2fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral", title: "CICS Graduation Day" },
-  { id: 8, thumbnail: "https://images.unsplash.com/photo-1759884248009-92c5e957708e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdHVkZW50cyUyMGNvZGluZyUyMGhhY2thdGhvbiUyMGxhcHRvcHxlbnwxfHx8fDE3NzM5NTEzMTd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral", title: "Hackathon 2026" },
-  { id: 9, thumbnail: "https://images.unsplash.com/photo-1772653519333-c1927e38f791?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjYW1wdXMlMjBzcG9ydHMlMjBldmVudCUyMGF0aGxldGljc3xlbnwxfHx8fDE3NzM5NTEzMTd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral", title: "CICS Sports Fest" },
+  { id: 1, thumbnail: "https://p19-common-sign.tiktokcdn.com/tos-alisg-p-0037/ogxeEPbOgL6RAIVgpbQ5WEFqEvB1crfZBgBkDy~tplv-tiktokx-origin.image?dr=14575&x-expires=1779195600&x-signature=Ky%2Fk0HHWlxCt56vMJHWqhW47ynM%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=my2", title: "CICS Student Council Day 1", url: "https://www.tiktok.com/@usticssc/video/7582569716187663637?is_from_webapp=1&sender_device=pc&web_id=7575776881057990161", views: "6302" },
+  { id: 2, thumbnail: "https://p16-common-sign.tiktokcdn.com/tos-alisg-p-0037/oMACACr0uivB5ISIKXRfAixigBFvlOI6swSyjw~tplv-tiktokx-origin.image?dr=14575&x-expires=1779195600&x-signature=EK%2BktcX1B1xjWrXyFZuI8IHU5z4%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=my2", title: "Leadership Week Highlights", url: "https://www.tiktok.com/@usticssc/video/7571050900819660052?is_from_webapp=1&sender_device=pc&web_id=7575776881057990161", views: "8126" },
+  { id: 3, thumbnail: "https://images.unsplash.com/photo-1764920265158-500a6e60c487?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwc3R1ZGVudCUyMGFjdGl2aXRpZXN8ZW58MXx8fHwxNzczNTg5OTYzfDA&ixlib=rb-4.1.0&q=80&w=1080", title: "Campus Life", url: "https://www.tiktok.com/@usticssc", views: "4501" },
+  { id: 4, thumbnail: "https://images.unsplash.com/photo-1769905226788-1bf5ba8f50d6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwY2FtcHVzJTIwc3R1ZGVudHMlMjB3YWxraW5nfGVufDF8fHx8MTc3MzkzNjM2MHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral", title: "Thomasian Tech Talk", url: "https://www.tiktok.com/@usticssc", views: "3200" },
+  { id: 5, thumbnail: "https://images.unsplash.com/photo-1718327453695-4d32b94c90a4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2xsZWdlJTIwc3R1ZGVudHMlMjBzdHVkeWluZyUyMGxpYnJhcnl8ZW58MXx8fHwxNzczOTE4MTgxfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral", title: "Study Group Sessions", url: "https://www.tiktok.com/@usticssc", views: "1250" },
+  { id: 6, thumbnail: "https://images.unsplash.com/photo-1768796370407-6d36619e7d6d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdHVkZW50JTIwb3JnYW5pemF0aW9uJTIwbWVldGluZyUyMHRlYW13b3JrfGVufDF8fHx8MTc3Mzk1MTE2OHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral", title: "ICSSC Team Building", url: "https://www.tiktok.com/@usticssc", views: "900" },
+  { id: 7, thumbnail: "https://images.unsplash.com/photo-1746122072064-3273a25094c2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2xsZWdlJTIwZ3JhZHVhdGlvbiUyMGNlcmVtb255JTIwY2VsZWJyYXRpb258ZW58MXx8fHwxNzczOTUxMzE2fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral", title: "CICS Graduation Day", url: "https://www.tiktok.com/@usticssc", views: "1120" },
+  { id: 8, thumbnail: "https://images.unsplash.com/photo-1759884248009-92c5e957708e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdHVkZW50cyUyMGNvZGluZyUyMGhhY2thdGhvbiUyMGxhcHRvcHxlbnwxfHx8fDE3NzM5NTEzMTd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral", title: "Hackathon 2026", url: "https://www.tiktok.com/@usticssc", views: "502" },
+  { id: 9, thumbnail: "https://images.unsplash.com/photo-1772653519333-c1927e38f791?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjYW1wdXMlMjBzcG9ydHMlMjBldmVudCUyMGF0aGxldGljc3xlbnwxfHx8fDE3NzM5NTEzMTd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral", title: "CICS Sports Fest", url: "https://www.tiktok.com/@usticssc", views: "1430" },
 ];
 
 const categories = ["All", "Student Spotlight", "Community Development", "Opportunities"];
@@ -92,26 +92,31 @@ export default function BlogsPage() {
           {/* 3-Column Video Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             {tiktokVideos.slice(0, visibleVideos).map((video) => (
-              <div
+              <a
+                href={video.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 key={video.id}
-                className="relative overflow-hidden group cursor-pointer"
+                className="relative overflow-hidden group cursor-pointer block"
                 style={{ borderRadius: '16px', aspectRatio: '9/16', backgroundColor: '#000' }}
               >
                 <ImageWithFallback
                   src={video.thumbnail}
                   alt={video.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                {/* Dark Overlay */}
-                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors"></div>
+                
+                {/* Gradient Overlay for bottom text */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
 
-                {/* Play Icon Overlay */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Play className="w-8 h-8 text-[#AA0924] ml-1" fill="#AA0924" />
-                  </div>
+                {/* View Count Overlay */}
+                <div className="absolute bottom-4 left-4 flex items-center gap-1.5 z-10">
+                  <Play className="w-4 h-4 text-white" fill="transparent" strokeWidth={2.5} />
+                  <span className="text-white font-semibold" style={{ fontFamily: F, fontSize: '15px' }}>
+                    {video.views}
+                  </span>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
 
