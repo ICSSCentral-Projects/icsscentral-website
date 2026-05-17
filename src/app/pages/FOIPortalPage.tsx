@@ -78,16 +78,16 @@ const getTrackerSteps = (status: string) => {
 };
 
 const getStatusLog = (req: FOIRequest) => {
-  if (req.statusLog && req.statusLog.length > 0) {
-    return req.statusLog.map((entry) => ({
-      date: new Date(entry.timestamp).toLocaleDateString('en-US', {
+  if (req.statusLog && Array.isArray(req.statusLog) && req.statusLog.length > 0) {
+    return req.statusLog.filter(Boolean).map((entry) => ({
+      date: entry?.timestamp ? new Date(entry.timestamp).toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'long',
         day: 'numeric',
         hour: '2-digit',
         minute: '2-digit',
-      }),
-      text: entry.text,
+      }) : req.publishedDate,
+      text: entry?.text || 'Status updated',
     }));
   }
   return [
@@ -580,7 +580,7 @@ export default function FOIPortalPage() {
               ) : (
                 <div className="flex flex-col" style={{ gap: '20px' }}>
                   {filteredRequests.map((req) => {
-                    const s = statusColors[req.status];
+                    const s = statusColors[req.status] || statusColors['pending'];
                     const dateLabel = req.status === 'pending' ? 'Submitted on' : 'Published on';
                     return (
                       <div key={req.id} className="relative bg-white overflow-hidden border border-[#E0E0E0] hover:border-[#AA0924] transition-all shadow-sm hover:shadow-md" style={{ borderRadius: '8px' }}>
@@ -623,8 +623,8 @@ export default function FOIPortalPage() {
 
               <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-6">
                 <h2 className="text-2xl md:text-3xl font-extrabold text-black leading-tight" style={{ fontFamily: F, margin: 0 }}>{selectedRequest.title}</h2>
-                <span className="inline-block self-start text-[11px] md:text-[12px] font-bold px-4 py-1.5 md:px-6 md:py-2 rounded-full uppercase tracking-wider" style={{ color: statusColors[selectedRequest.status].text, backgroundColor: statusColors[selectedRequest.status].bg, fontFamily: F }}>
-                  {statusColors[selectedRequest.status].label}
+                <span className="inline-block self-start text-[11px] md:text-[12px] font-bold px-4 py-1.5 md:px-6 md:py-2 rounded-full uppercase tracking-wider" style={{ color: (statusColors[selectedRequest.status] || statusColors['pending']).text, backgroundColor: (statusColors[selectedRequest.status] || statusColors['pending']).bg, fontFamily: F }}>
+                  {(statusColors[selectedRequest.status] || statusColors['pending']).label}
                 </span>
               </div>
 
@@ -640,7 +640,7 @@ export default function FOIPortalPage() {
               </div>
 
               {(() => {
-                const sc = statusColors[selectedRequest.status];
+                const sc = statusColors[selectedRequest.status] || statusColors['pending'];
                 const borderColor = selectedRequest.status === 'successful' ? '#A7F3D0' : selectedRequest.status === 'unsuccessful' ? '#FECACA' : '#FDE68A';
                 const messages: Record<string, string> = {
                   successful: 'Your request has been approved and the requested information has been released.',
