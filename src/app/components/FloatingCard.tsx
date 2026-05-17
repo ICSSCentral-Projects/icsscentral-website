@@ -36,11 +36,11 @@ export default function FloatingCard() {
             </p>
 
             <Link
-              to="/contact"
+              to="/about/council"
               className="inline-flex items-center justify-center bg-white text-[#AA0924] hover:bg-gray-50 transition-all font-bold text-[11px] md:text-sm rounded h-9 md:h-12 w-32 md:w-40 mt-1 md:mt-2 shadow-sm active:scale-95"
               style={{ fontFamily: F }}
             >
-              CONTACT US
+              ABOUT US
             </Link>
 
           </div>
