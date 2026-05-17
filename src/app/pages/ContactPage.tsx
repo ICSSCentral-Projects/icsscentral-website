@@ -394,24 +394,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Quick Links */}
-      <section className="bg-[#AA0924]" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
-        <div className="max-w-[1280px] mx-auto px-[80px]">
-          <h2 className="text-white text-center mb-8" style={{ fontWeight: 700, fontSize: '32px' }}>Other Ways to Reach Us</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { label: "STRAW Desk", desc: "For student rights and welfare concerns", path: "/services/straw-desk" },
-              { label: "FOI Portal", desc: "For freedom of information requests", path: "/services/foi-portal" },
-              { label: "Directory", desc: "Access documents and resources", path: "/services/directory" },
-            ].map((item, i) => (
-              <Link key={i} to={item.path} className="bg-white/10 rounded-lg p-6 text-white hover:bg-white/20 transition-all text-center">
-                <h3 className="mb-2" style={{ fontWeight: 700, fontSize: '24px' }}>{item.label}</h3>
-                <p className="text-white/80" style={{ fontSize: '14px' }}>{item.desc}</p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* Success Popup */}
       {isPopupOpen && (
