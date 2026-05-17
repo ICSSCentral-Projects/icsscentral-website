@@ -21,22 +21,22 @@ const documents = [
   {
     title: 'UST ICSSC Constitution of 2015',
     description: 'The governing document outlining the principles, rights, and responsibilities of the CICS student body.',
-    link: 'https://drive.google.com/uc?export=download&id=1GTtAhCXgfnYpYBCz-Sa6In1UYj5LsjKF',
+    link: '/documents/UST_ICSSC_Constitution_of_2015.pdf',
   },
   {
     title: 'UST Student Handbook (Revised 2018)',
     description: 'The official university manual for academic regulations, student conduct, and Thomasian identity.',
-    link: 'https://drive.google.com/uc?export=download&id=1FVXtVykuX45rx3h2BoF-Nqhusmkq7TiP',
+    link: '/documents/UST_Student_Handbook_Revised_2018.pdf',
   },
   {
     title: 'ICSSC Partnership Primer',
     description: 'The official guide for organizations looking to collaborate with the CICS Student Council on long-term initiatives.',
-    link: 'https://drive.google.com/uc?export=download&id=1WHV1ymLBY6ArYlh4TvDExPz-nJf1-T96',
+    link: '/documents/ICSSC_Partnership_Primer.pdf',
   },
   {
     title: 'ICSSC Sponsorship Primer',
     description: 'A comprehensive document detailing sponsorship packages and benefits for potential corporate partners.',
-    link: 'https://drive.google.com/uc?export=download&id=1hPab0y8SFTXxhzVA-P8wIYIw7VnB0lhG',
+    link: '/documents/ICSSC_Sponsorship_Primer.pdf',
   },
 ];
 
