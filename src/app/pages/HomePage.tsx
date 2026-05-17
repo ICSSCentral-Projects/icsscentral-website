@@ -20,6 +20,7 @@ const heroSlides = [
 
 export default function HomePage() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -163,17 +164,31 @@ export default function HomePage() {
             Get to know the UST CICS Student Council
           </h3>
           <div className="relative overflow-hidden shadow-2xl" style={{ borderRadius: '16px' }}>
-            <div className="aspect-video relative">
-              <img src={cics3} alt="CICS Student Council Video" className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-black/35" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <button
-                  className="w-16 h-16 md:w-[100px] md:h-[100px] bg-[#AA0924] rounded-full flex items-center justify-center hover:bg-[#880718] transition-all hover:scale-105 shadow-2xl"
-                  aria-label="Play video"
+            <div className="aspect-video relative bg-black">
+              {!isPlaying ? (
+                <>
+                  <img src={cics3} alt="CICS Student Council Video Thumbnail" className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-black/35" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <button
+                      onClick={() => setIsPlaying(true)}
+                      className="w-16 h-16 md:w-[100px] md:h-[100px] bg-[#AA0924] rounded-full flex items-center justify-center hover:bg-[#880718] transition-all hover:scale-105 shadow-2xl"
+                      aria-label="Play video"
+                    >
+                      <Play className="w-6 h-6 md:w-10 md:h-10 text-white ml-1 md:ml-1.5" fill="white" />
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <video 
+                  src="/council-video.mp4" 
+                  autoPlay 
+                  controls 
+                  className="w-full h-full object-cover"
                 >
-                  <Play className="w-6 h-6 md:w-10 md:h-10 text-white ml-1 md:ml-1.5" fill="white" />
-                </button>
-              </div>
+                  Your browser does not support the video tag.
+                </video>
+              )}
             </div>
           </div>
         </div>
