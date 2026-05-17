@@ -669,10 +669,17 @@ export default function FOIPortalPage() {
                     const startPct = (1 / (2 * total)) * 100;
                     const endPct = ((2 * lastCompletedIndex + 1) / (2 * total)) * 100;
                     const isUnsuccessful = selectedRequest.status === 'unsuccessful';
+                    const lineStyleHorizontal = isUnsuccessful 
+                      ? { backgroundImage: 'linear-gradient(to right, #28A745 50%, #DC3545 50%)' }
+                      : { backgroundColor: '#28A745' };
+                    const lineStyleVertical = isUnsuccessful
+                      ? { backgroundImage: 'linear-gradient(to bottom, #28A745 50%, #DC3545 50%)' }
+                      : { backgroundColor: '#28A745' };
+
                     return (
                       <>
-                        <div className="absolute hidden md:block" style={{ top: '20px', left: `${startPct}%`, width: `${endPct - startPct}%`, height: '2px', backgroundColor: isUnsuccessful ? '#DC3545' : '#28A745', zIndex: 1 }} />
-                        <div className="absolute left-[20px] top-[20px] w-0.5 md:hidden" style={{ height: `${(lastCompletedIndex / (total - 1)) * 100}%`, backgroundColor: isUnsuccessful ? '#DC3545' : '#28A745' }} />
+                        <div className="absolute hidden md:block" style={{ top: '20px', left: `${startPct}%`, width: `${endPct - startPct}%`, height: '2px', zIndex: 1, ...lineStyleHorizontal }} />
+                        <div className="absolute left-[20px] top-[20px] w-0.5 md:hidden" style={{ height: `${(lastCompletedIndex / (total - 1)) * 100}%`, zIndex: 1, ...lineStyleVertical }} />
                       </>
                     );
                   })()}
