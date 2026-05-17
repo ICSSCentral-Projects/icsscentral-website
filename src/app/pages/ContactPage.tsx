@@ -374,7 +374,7 @@ export default function ContactPage() {
       </section>
 
       {/* FAQs */}
-      <section className="bg-white" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
+      <section id="faqs" className="bg-white scroll-mt-[100px]" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
         <div className="max-w-[800px] mx-auto px-8">
           <div className="text-center mb-10">
             <h2 className="text-[#1A1A1A] mb-2" style={{ fontWeight: 700, fontSize: '32px' }}>FREQUENTLY ASKED QUESTIONS</h2>

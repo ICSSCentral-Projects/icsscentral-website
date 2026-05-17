@@ -13,10 +13,20 @@ export default function Layout() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showBanner, setShowBanner] = useState(true);
 
-  // Scroll to top on route change
+  // Scroll to top on route change, or to hash if present
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location.pathname]);
+    if (location.hash) {
+      setTimeout(() => {
+        const id = location.hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 0);
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [location.pathname, location.hash]);
 
   const dropdownTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const navRef = useRef<HTMLDivElement>(null);
@@ -408,6 +418,7 @@ export default function Layout() {
               <li><Link to="/about/organizations" className="hover:text-[#AA0924] transition-colors text-sm md:text-base font-normal whitespace-nowrap">CICS Organizations</Link></li>
               <li><Link to="/blogs" className="hover:text-[#AA0924] transition-colors text-sm md:text-base font-normal whitespace-nowrap">News & Updates</Link></li>
               <li><Link to="/events" className="hover:text-[#AA0924] transition-colors text-sm md:text-base font-normal whitespace-nowrap">Events</Link></li>
+              <li><Link to="/contact#faqs" className="hover:text-[#AA0924] transition-colors text-sm md:text-base font-normal whitespace-nowrap">FAQs</Link></li>
             </ul>
           </div>
 
