@@ -155,7 +155,7 @@ export default function HomePage() {
       </section>
 
       {/* VIDEO SECTION */}
-      <section className="py-10 md:py-[80px] bg-[#F5F5F5]">
+      <section className="pt-10 pb-20 md:pt-[80px] md:pb-[120px] bg-[#F5F5F5]">
         <div className="max-w-7xl mx-auto px-6 md:px-20">
           <h3
             className="text-center text-[#1A1A1A] mb-8 md:mb-10 text-xl md:text-3xl font-bold leading-snug"
@@ -194,70 +194,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* UPCOMING EVENTS */}
-      <section className="py-10 md:py-[80px] bg-white">
-        <div className="max-w-7xl mx-auto px-6 md:px-20">
-          {/* Header with Red Accent Line */}
-          <div className="flex items-center justify-between" style={{ marginBottom: '40px' }}>
-            <h2 className="text-[#1A1A1A]" style={{ fontWeight: 700, fontSize: '32px' }}>Upcoming Events</h2>
-            <div className="w-20 h-1 bg-[#AA0924]"></div>
-          </div>
 
-          {/* Featured Card */}
-          {featuredEvent && (
-            <div className="bg-white rounded-2xl overflow-hidden shadow-lg border border-[#E0E0E0]">
-              <div className="grid grid-cols-1 md:grid-cols-[60%_40%]">
-                {/* Image */}
-                <div className="h-[300px] md:h-[500px]">
-                  <img src={featuredEvent.image} alt={featuredEvent.title} className="w-full h-full object-cover" />
-                </div>
-
-                {/* Content - 40% */}
-                <div className="p-10 flex flex-col justify-center">
-                  {/* Tags */}
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="bg-[#AA0924] text-white px-3 py-1 rounded text-xs" style={{ fontWeight: 600 }}>{featuredEvent.category}</span>
-                  </div>
-
-                  {/* Title */}
-                  <h2 className="text-[#1A1A1A] mb-4" style={{ fontWeight: 700, fontSize: '24px', lineHeight: '1.3' }}>
-                    {featuredEvent.title}
-                  </h2>
-
-                  {/* Description */}
-                  <p className="text-[#555555] mb-6" style={{ fontSize: '16px', lineHeight: '26px', fontWeight: 400 }}>
-                    {featuredEvent.description}
-                  </p>
-
-                  {/* Event Details */}
-                  <div className="space-y-3 mb-6">
-                    <div className="flex items-center gap-3 text-[#777777]" style={{ fontSize: '14px', fontWeight: 500 }}>
-                      <Calendar className="w-5 h-5 text-[#AA0924]" />
-                      <span>{featuredEvent.date}</span>
-                    </div>
-                    <div className="flex items-center gap-3 text-[#777777]" style={{ fontSize: '14px', fontWeight: 500 }}>
-                      <Clock className="w-5 h-5 text-[#AA0924]" />
-                      <span>{featuredEvent.time}</span>
-                    </div>
-                    <div className="flex items-center gap-3 text-[#777777]" style={{ fontSize: '14px', fontWeight: 500 }}>
-                      <MapPin className="w-5 h-5 text-[#AA0924]" />
-                      <span>{featuredEvent.location}</span>
-                    </div>
-                  </div>
-
-                  {/* Button */}
-                  <button
-                    className="inline-flex items-center justify-center gap-2 bg-[#AA0924] text-white px-7 py-3 rounded hover:bg-[#880718] transition-colors self-start"
-                    style={{ fontWeight: 700, fontSize: '16px' }}
-                  >
-                    Register Now <ArrowRight className="w-4 h-4" />
-                  </button>
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
-      </section>
     </div>
   );
 }
