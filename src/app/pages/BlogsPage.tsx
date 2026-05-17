@@ -84,7 +84,7 @@ export default function BlogsPage() {
           {/* Header with Red Accent Line */}
           <div className="flex items-center justify-between" style={{ marginBottom: '32px' }}>
             <h2 className="text-[#1A1A1A] text-2xl md:text-[32px] font-bold" style={{ fontFamily: F }}>
-              Tiktok
+              TikTok
             </h2>
             <div className="w-20 h-1 bg-[#AA0924]"></div>
           </div>
@@ -105,7 +105,7 @@ export default function BlogsPage() {
                   alt={video.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                
+
                 {/* Gradient Overlay for bottom text */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
 
