@@ -234,13 +234,7 @@ export default function OrganizationsPage() {
                         left: 0
                       }}
                     />
-                    {/* Diagonal Pattern Overlay */}
-                    <div 
-                      className="absolute inset-0 opacity-20"
-                      style={{
-                        background: 'repeating-linear-gradient(45deg, #AA0924 0px, #AA0924 2px, transparent 2px, transparent 10px)'
-                      }}
-                    ></div>
+
                   </div>
 
                   {/* Text Side */}
