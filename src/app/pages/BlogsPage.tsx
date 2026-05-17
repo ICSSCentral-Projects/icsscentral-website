@@ -18,6 +18,7 @@ const F = "'Poppins', sans-serif";
 const tiktokVideos = [
   { id: 1, thumbnail: "https://p19-common-sign.tiktokcdn.com/tos-alisg-p-0037/ogxeEPbOgL6RAIVgpbQ5WEFqEvB1crfZBgBkDy~tplv-tiktokx-origin.image?dr=14575&x-expires=1779195600&x-signature=Ky%2Fk0HHWlxCt56vMJHWqhW47ynM%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=my2", title: "CICS Student Council Day 1", url: "https://www.tiktok.com/@usticssc/video/7582569716187663637?is_from_webapp=1&sender_device=pc&web_id=7575776881057990161", views: "6302" },
   { id: 2, thumbnail: "https://p16-common-sign.tiktokcdn.com/tos-alisg-p-0037/oMACACr0uivB5ISIKXRfAixigBFvlOI6swSyjw~tplv-tiktokx-origin.image?dr=14575&x-expires=1779195600&x-signature=EK%2BktcX1B1xjWrXyFZuI8IHU5z4%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=my2", title: "Leadership Week Highlights", url: "https://www.tiktok.com/@usticssc/video/7571050900819660052?is_from_webapp=1&sender_device=pc&web_id=7575776881057990161", views: "8126" },
+  { id: 3, empty: true },
 ];
 
 const categories = ["All", "Student Spotlight", "Community Development", "Opportunities"];
@@ -85,31 +86,41 @@ export default function BlogsPage() {
           {/* 3-Column Video Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             {tiktokVideos.slice(0, visibleVideos).map((video) => (
-              <a
-                href={video.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                key={video.id}
-                className="relative overflow-hidden group cursor-pointer block"
-                style={{ borderRadius: '16px', aspectRatio: '9/16', backgroundColor: '#000' }}
-              >
-                <ImageWithFallback
-                  src={video.thumbnail}
-                  alt={video.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-
-                {/* Gradient Overlay for bottom text */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-
-                {/* View Count Overlay */}
-                <div className="absolute bottom-4 left-4 flex items-center gap-1.5 z-10">
-                  <Play className="w-4 h-4 text-white" fill="transparent" strokeWidth={2.5} />
-                  <span className="text-white font-semibold" style={{ fontFamily: F, fontSize: '15px' }}>
-                    {video.views}
-                  </span>
+              video.empty ? (
+                <div 
+                  key={video.id} 
+                  className="relative rounded-[16px] border-2 border-dashed border-[#E0E0E0] bg-[#F9F9F9] flex items-center justify-center"
+                  style={{ aspectRatio: '9/16' }}
+                >
+                  <span className="text-[#A8A8A8] font-medium" style={{ fontFamily: F, fontSize: '14px' }}>More coming soon</span>
                 </div>
-              </a>
+              ) : (
+                <a
+                  href={video.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  key={video.id}
+                  className="relative overflow-hidden group cursor-pointer block"
+                  style={{ borderRadius: '16px', aspectRatio: '9/16', backgroundColor: '#000' }}
+                >
+                  <ImageWithFallback
+                    src={video.thumbnail}
+                    alt={video.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  
+                  {/* Gradient Overlay for bottom text */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+
+                  {/* View Count Overlay */}
+                  <div className="absolute bottom-4 left-4 flex items-center gap-1.5 z-10">
+                    <Play className="w-4 h-4 text-white" fill="transparent" strokeWidth={2.5} />
+                    <span className="text-white font-semibold" style={{ fontFamily: F, fontSize: '15px' }}>
+                      {video.views}
+                    </span>
+                  </div>
+                </a>
+              )
             ))}
           </div>
 
