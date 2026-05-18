@@ -263,7 +263,7 @@ export default function CouncilMembersPage() {
             Become part of a team dedicated to making a difference. Council elections are held annually at the start of each academic year.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/contact" className="bg-white text-[#AA0924] px-7 py-3 rounded hover:bg-gray-100 transition-colors" style={{ fontFamily: F, fontWeight: 700, fontSize: '16px' }}>
+            <Link to="/blogs/bggko6rr02ztfgxd22boovsj" className="bg-white text-[#AA0924] px-7 py-3 rounded hover:bg-gray-100 transition-colors" style={{ fontFamily: F, fontWeight: 700, fontSize: '16px' }}>
               Get Involved
             </Link>
           </div>
